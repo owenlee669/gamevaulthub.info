@@ -5,7 +5,7 @@ const games = [
         title: "Garden Bloom",
         description: "Match colorful flowers in this relaxing puzzle game. Create beautiful garden patterns!",
         category: "Puzzle",
-        imageSrc: "https://img.itch.zone/aW1nLzMyNDU0ODEucG5n/315x250%23c/oZZXJr.png",
+        imageSrc: "https://i.ibb.co/02bJM8N/garden-bloom.jpg",
         iframeSrc: "https://html5.gamemondi.com/d6187a5f5fe849ddb0eb6f7534621b89/?gd_sdk_referrer_url=https://gamedistribution.com/games/garden-bloom",
         featured: true,
         rating: 4.5,
@@ -16,7 +16,7 @@ const games = [
         title: "Bubble Tower 3D",
         description: "Aim and shoot bubbles to collapse the tower in this addictive 3D puzzle game.",
         category: "Puzzle",
-        imageSrc: "https://img.gamedistribution.com/d1d6a8d1447f44a387dad4249ba07c44-512x384.jpeg",
+        imageSrc: "https://i.ibb.co/MhKg1V5/bubble-tower-3d.jpg",
         iframeSrc: "https://html5.gamemondi.com/d1d6a8d1447f44a387dad4249ba07c44/?gd_sdk_referrer_url=https://gamedistribution.com/games/bubble-tower-3d",
         featured: true,
         rating: 4.3,
@@ -27,7 +27,7 @@ const games = [
         title: "Cannon Balls 3D",
         description: "Fire cannon balls to destroy targets in this physics-based 3D action game.",
         category: "Action",
-        imageSrc: "https://img.gamedistribution.com/bb7722e59a9e49dd9c11a0a50e6b69c3-512x384.jpeg",
+        imageSrc: "https://i.ibb.co/Px5DTkb/cannon-balls-3d.jpg",
         iframeSrc: "https://html5.gamemondi.com/bb7722e59a9e49dd9c11a0a50e6b69c3/?gd_sdk_referrer_url=https://gamedistribution.com/games/cannon-balls-3d",
         featured: true,
         rating: 4.7,
@@ -38,7 +38,7 @@ const games = [
         title: "Tower Crash 3D",
         description: "Test your physics skills by removing blocks without toppling the tower.",
         category: "Strategy",
-        imageSrc: "https://img.gamedistribution.com/4603fe3a3fee4688a3fa3e61bfc4a6fd-512x384.jpeg",
+        imageSrc: "https://i.ibb.co/zbDQdFt/tower-crash-3d.jpg",
         iframeSrc: "https://html5.gamemondi.com/4603fe3a3fee4688a3fa3e61bfc4a6fd/?gd_sdk_referrer_url=https://gamedistribution.com/games/tower-crash-3d",
         featured: true,
         rating: 4.6,
@@ -49,7 +49,7 @@ const games = [
         title: "Element Blocks",
         description: "Master the elements in this unique puzzle challenge.",
         category: "Puzzle",
-        imageSrc: "https://img.gamedistribution.com/21a108c901704aa69dd6f5ab10f9c1e4-512x384.jpeg",
+        imageSrc: "https://i.ibb.co/51Nvk2J/element-blocks.jpg",
         iframeSrc: "https://html5.gamemondi.com/21a108c901704aa69dd6f5ab10f9c1e4/?gd_sdk_referrer_url=https://gamedistribution.com/games/element-blocks",
         featured: false,
         rating: 4.2,
@@ -60,7 +60,7 @@ const games = [
         title: "ZooBoom",
         description: "Match and connect animals in this colorful puzzle adventure.",
         category: "Puzzle",
-        imageSrc: "https://img.gamedistribution.com/0eba31e67953402c96da3aa6c5ceb2ca-512x384.jpeg",
+        imageSrc: "https://i.ibb.co/sWx6tHp/zooboom.jpg",
         iframeSrc: "https://html5.gamemondi.com/0eba31e67953402c96da3aa6c5ceb2ca/?gd_sdk_referrer_url=https://gamedistribution.com/games/zooboom",
         featured: false,
         rating: 4.0,
@@ -71,7 +71,7 @@ const games = [
         title: "Moto X3M Pool Party",
         description: "Race motorcycles through water-themed obstacle courses in this thrilling racing game.",
         category: "Racing",
-        imageSrc: "https://img.gamedistribution.com/99aca2cbed4f4b2583216cbb4ad51c97-512x384.jpeg",
+        imageSrc: "https://i.ibb.co/vw1KrLT/moto-x3m.jpg",
         iframeSrc: "https://html5.gamemondi.com/99aca2cbed4f4b2583216cbb4ad51c97/?gd_sdk_referrer_url=https://gamedistribution.com/games/moto-x3m-pool-party",
         featured: false,
         rating: 4.7,
@@ -82,7 +82,7 @@ const games = [
         title: "Bubble Woods",
         description: "Pop colorful bubbles in this enchanting forest adventure.",
         category: "Puzzle",
-        imageSrc: "https://img.gamedistribution.com/3c3c196eff40482f9bd3534ae94ca40e-512x384.jpeg",
+        imageSrc: "https://i.ibb.co/jHPR6Rn/bubble-woods.jpg",
         iframeSrc: "https://html5.gamemondi.com/3c3c196eff40482f9bd3534ae94ca40e/?gd_sdk_referrer_url=https://gamedistribution.com/games/bubble-woods",
         featured: false,
         rating: 4.1,
@@ -93,7 +93,7 @@ const games = [
         title: "3D Free Kick",
         description: "Score amazing free kicks in this realistic 3D soccer game.",
         category: "Sports",
-        imageSrc: "https://img.gamedistribution.com/e08564d11913424eb273d5d4bd53853d-512x384.jpeg",
+        imageSrc: "https://i.ibb.co/N1WFd34/3d-free-kick.jpg",
         iframeSrc: "https://html5.gamemondi.com/e08564d11913424eb273d5d4bd53853d/?gd_sdk_referrer_url=https://gamedistribution.com/games/3d-free-kick",
         featured: false,
         rating: 4.3,
@@ -104,7 +104,7 @@ const games = [
         title: "8 Ball Billiards",
         description: "Play classic 8-ball billiards against challenging opponents.",
         category: "Sports",
-        imageSrc: "https://img.gamedistribution.com/2a51824be19f446db3bc5c91983a0f8c-512x384.jpeg",
+        imageSrc: "https://i.ibb.co/wpNFw0B/8-ball-billiards.jpg",
         iframeSrc: "https://html5.gamemondi.com/2a51824be19f446db3bc5c91983a0f8c/?gd_sdk_referrer_url=https://gamedistribution.com/games/8-ball-billiards-classic",
         featured: false,
         rating: 4.4,
@@ -115,7 +115,7 @@ const games = [
         title: "Archery World Tour",
         description: "Test your archery skills in locations around the globe.",
         category: "Sports",
-        imageSrc: "https://img.gamedistribution.com/b2fd5df9f41e44a7be71edafe2d986fa-512x384.jpeg",
+        imageSrc: "https://i.ibb.co/PWJ9n3M/archery-world-tour.jpg",
         iframeSrc: "https://html5.gamemondi.com/b2fd5df9f41e44a7be71edafe2d986fa/?gd_sdk_referrer_url=https://gamedistribution.com/games/archery-world-tour",
         featured: false,
         rating: 4.3,
@@ -126,7 +126,7 @@ const games = [
         title: "Totemia Cursed Marbles",
         description: "Match and shoot marbles to break the ancient curse.",
         category: "Puzzle",
-        imageSrc: "https://img.gamedistribution.com/b5eb56f1ed2049639747e8ed9a1e783c-512x384.jpeg",
+        imageSrc: "https://i.ibb.co/Vt3XcXw/totemia-cursed-marbles.jpg",
         iframeSrc: "https://html5.gamemondi.com/b5eb56f1ed2049639747e8ed9a1e783c/?gd_sdk_referrer_url=https://gamedistribution.com/games/totemia-cursed-marbles",
         featured: false,
         rating: 4.1,
@@ -137,7 +137,7 @@ const games = [
         title: "Table Tennis World Tour",
         description: "Compete in table tennis tournaments around the world with realistic physics.",
         category: "Sports",
-        imageSrc: "https://img.gamedistribution.com/9a4a9fd7d7604b31b7fe45d1d2fd8e75-512x384.jpeg",
+        imageSrc: "https://i.ibb.co/ZWSdSc4/table-tennis.jpg",
         iframeSrc: "https://html5.gamemondi.com/9a4a9fd7d7604b31b7fe45d1d2fd8e75/?gd_sdk_referrer_url=https://gamedistribution.com/games/table-tennis-world-tour",
         featured: false,
         rating: 4.4,
@@ -148,7 +148,7 @@ const games = [
         title: "Onet Connect Classic",
         description: "Match identical tiles to clear the board in this relaxing puzzle game.",
         category: "Puzzle",
-        imageSrc: "https://img.gamedistribution.com/66168b65a8a24fe6b27ff13b92ab81ba-512x384.jpeg",
+        imageSrc: "https://i.ibb.co/HXhSK3g/onet-connect.jpg",
         iframeSrc: "https://html5.gamemondi.com/66168b65a8a24fe6b27ff13b92ab81ba/?gd_sdk_referrer_url=https://gamedistribution.com/games/onet-connect-classic",
         featured: false,
         rating: 4.3,
@@ -831,9 +831,8 @@ function highlightText(element, query) {
 function generateFallbackImage(title, category) {
     // 使用国内可访问的图片服务
     const fallbackColor = getCategoryColor(category);
-    const encodedTitle = encodeURIComponent(title);
     
-    // 尝试使用Base64 SVG作为备用选项
+    // 创建一个SVG字符串
     const svgContent = `
     <svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" viewBox="0 0 300 200">
         <rect width="300" height="200" fill="${fallbackColor}"/>
@@ -842,8 +841,13 @@ function generateFallbackImage(title, category) {
     </svg>
     `;
     
-    const base64Svg = "data:image/svg+xml;base64," + btoa(unescape(encodeURIComponent(svgContent)));
-    return base64Svg;
+    // 编码SVG，确保适用于中文环境
+    const encoded = encodeURIComponent(svgContent)
+        .replace(/'/g, '%27')
+        .replace(/"/g, '%22');
+    
+    // 直接使用data URI，不使用base64编码，避免中文问题
+    return `data:image/svg+xml,${encoded}`;
 }
 
 // 根据游戏类别获取颜色
