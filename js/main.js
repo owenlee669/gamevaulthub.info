@@ -255,11 +255,45 @@ function renderFeaturedGames() {
                 (img) => { img.src = generateFallbackImage(game.title, game.category); }
             );
         } else {
-            // 后备方案，使用之前的方法
+            // 设置初始图片源
             gameImage.src = game.imageSrc;
+            
+            // 图片加载错误处理
             gameImage.onerror = function() {
                 this.onerror = null;
-                this.src = generateFallbackImage(game.title, game.category);
+                console.log(`图片加载失败: ${game.title}`);
+                
+                // 尝试使用一系列备用方案
+                const backupCdns = [
+                    // 1. 使用ImgBB
+                    game.imageSrc,
+                    
+                    // 2. 尝试其它CDN
+                    `https://gamesite-img.netlify.app/games/${game.title.toLowerCase().replace(/\s+/g, '-')}.jpg`,
+                    
+                    // 3. 使用内嵌的备用图片
+                    window.GameFallbacks ? window.GameFallbacks.getFallbackGameImage(game.id, game.category, game.title) : null,
+                    
+                    // 4. 生成动态SVG作为最后的备选方案
+                    generateFallbackImage(game.title, game.category)
+                ].filter(Boolean); // 移除null或undefined值
+                
+                // 尝试第一个备选项
+                let backupIndex = 0;
+                
+                const tryNextImage = () => {
+                    if (backupIndex < backupCdns.length) {
+                        console.log(`尝试备用图片 ${backupIndex+1}/${backupCdns.length}: ${game.title}`);
+                        this.src = backupCdns[backupIndex++];
+                    } else {
+                        // 所有备选项都失败了，删除onerror避免无限循环
+                        this.onerror = null;
+                        console.log(`所有备用方案均失败: ${game.title}`);
+                    }
+                };
+                
+                this.onerror = tryNextImage;
+                tryNextImage(); // 立即尝试第一个备用方案
             };
         }
         
@@ -340,11 +374,45 @@ function renderAllGames() {
                 (img) => { img.src = generateFallbackImage(game.title, game.category); }
             );
         } else {
-            // 后备方案，使用之前的方法
+            // 设置初始图片源
             gameImage.src = game.imageSrc;
+            
+            // 图片加载错误处理
             gameImage.onerror = function() {
                 this.onerror = null;
-                this.src = generateFallbackImage(game.title, game.category);
+                console.log(`图片加载失败: ${game.title}`);
+                
+                // 尝试使用一系列备用方案
+                const backupCdns = [
+                    // 1. 使用ImgBB
+                    game.imageSrc,
+                    
+                    // 2. 尝试其它CDN
+                    `https://gamesite-img.netlify.app/games/${game.title.toLowerCase().replace(/\s+/g, '-')}.jpg`,
+                    
+                    // 3. 使用内嵌的备用图片
+                    window.GameFallbacks ? window.GameFallbacks.getFallbackGameImage(game.id, game.category, game.title) : null,
+                    
+                    // 4. 生成动态SVG作为最后的备选方案
+                    generateFallbackImage(game.title, game.category)
+                ].filter(Boolean); // 移除null或undefined值
+                
+                // 尝试第一个备选项
+                let backupIndex = 0;
+                
+                const tryNextImage = () => {
+                    if (backupIndex < backupCdns.length) {
+                        console.log(`尝试备用图片 ${backupIndex+1}/${backupCdns.length}: ${game.title}`);
+                        this.src = backupCdns[backupIndex++];
+                    } else {
+                        // 所有备选项都失败了，删除onerror避免无限循环
+                        this.onerror = null;
+                        console.log(`所有备用方案均失败: ${game.title}`);
+                    }
+                };
+                
+                this.onerror = tryNextImage;
+                tryNextImage(); // 立即尝试第一个备用方案
             };
         }
         
