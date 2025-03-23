@@ -5,7 +5,7 @@ const games = [
         title: "Garden Bloom",
         description: "Match colorful flowers in this relaxing puzzle game. Create beautiful garden patterns!",
         category: "Puzzle",
-        imageSrc: "https://i.ibb.co/02bJM8N/garden-bloom.jpg",
+        imageSrc: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200' viewBox='0 0 300 200'%3E%3Crect width='300' height='200' fill='%233b82f6'/%3E%3Ctext x='50%25' y='50%25' font-family='Arial' font-size='24' fill='white' text-anchor='middle' dominant-baseline='middle'%3EGarden Bloom%3C/text%3E%3Ctext x='50%25' y='70%25' font-family='Arial' font-size='16' fill='white' text-anchor='middle' dominant-baseline='middle'%3EPuzzle%3C/text%3E%3C/svg%3E",
         iframeSrc: "https://html5.gamemondi.com/d6187a5f5fe849ddb0eb6f7534621b89/?gd_sdk_referrer_url=https://gamedistribution.com/games/garden-bloom",
         featured: true,
         rating: 4.5,
@@ -16,7 +16,7 @@ const games = [
         title: "Bubble Tower 3D",
         description: "Aim and shoot bubbles to collapse the tower in this addictive 3D puzzle game.",
         category: "Puzzle",
-        imageSrc: "https://i.ibb.co/MhKg1V5/bubble-tower-3d.jpg",
+        imageSrc: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200' viewBox='0 0 300 200'%3E%3Crect width='300' height='200' fill='%233b82f6'/%3E%3Ctext x='50%25' y='50%25' font-family='Arial' font-size='24' fill='white' text-anchor='middle' dominant-baseline='middle'%3EBubble Tower 3D%3C/text%3E%3Ctext x='50%25' y='70%25' font-family='Arial' font-size='16' fill='white' text-anchor='middle' dominant-baseline='middle'%3EPuzzle%3C/text%3E%3C/svg%3E",
         iframeSrc: "https://html5.gamemondi.com/d1d6a8d1447f44a387dad4249ba07c44/?gd_sdk_referrer_url=https://gamedistribution.com/games/bubble-tower-3d",
         featured: true,
         rating: 4.3,
@@ -27,7 +27,7 @@ const games = [
         title: "Cannon Balls 3D",
         description: "Fire cannon balls to destroy targets in this physics-based 3D action game.",
         category: "Action",
-        imageSrc: "https://i.ibb.co/Px5DTkb/cannon-balls-3d.jpg",
+        imageSrc: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200' viewBox='0 0 300 200'%3E%3Crect width='300' height='200' fill='%23ef4444'/%3E%3Ctext x='50%25' y='50%25' font-family='Arial' font-size='24' fill='white' text-anchor='middle' dominant-baseline='middle'%3ECannon Balls 3D%3C/text%3E%3Ctext x='50%25' y='70%25' font-family='Arial' font-size='16' fill='white' text-anchor='middle' dominant-baseline='middle'%3EAction%3C/text%3E%3C/svg%3E",
         iframeSrc: "https://html5.gamemondi.com/bb7722e59a9e49dd9c11a0a50e6b69c3/?gd_sdk_referrer_url=https://gamedistribution.com/games/cannon-balls-3d",
         featured: true,
         rating: 4.7,
@@ -38,7 +38,7 @@ const games = [
         title: "Tower Crash 3D",
         description: "Test your physics skills by removing blocks without toppling the tower.",
         category: "Strategy",
-        imageSrc: "https://i.ibb.co/zbDQdFt/tower-crash-3d.jpg",
+        imageSrc: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200' viewBox='0 0 300 200'%3E%3Crect width='300' height='200' fill='%238b5cf6'/%3E%3Ctext x='50%25' y='50%25' font-family='Arial' font-size='24' fill='white' text-anchor='middle' dominant-baseline='middle'%3ETower Crash 3D%3C/text%3E%3Ctext x='50%25' y='70%25' font-family='Arial' font-size='16' fill='white' text-anchor='middle' dominant-baseline='middle'%3EStrategy%3C/text%3E%3C/svg%3E",
         iframeSrc: "https://html5.gamemondi.com/4603fe3a3fee4688a3fa3e61bfc4a6fd/?gd_sdk_referrer_url=https://gamedistribution.com/games/tower-crash-3d",
         featured: true,
         rating: 4.6,
@@ -49,7 +49,7 @@ const games = [
         title: "Element Blocks",
         description: "Master the elements in this unique puzzle challenge.",
         category: "Puzzle",
-        imageSrc: "https://i.ibb.co/51Nvk2J/element-blocks.jpg",
+        imageSrc: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200' viewBox='0 0 300 200'%3E%3Crect width='300' height='200' fill='%233b82f6'/%3E%3Ctext x='50%25' y='50%25' font-family='Arial' font-size='24' fill='white' text-anchor='middle' dominant-baseline='middle'%3EElement Blocks%3C/text%3E%3Ctext x='50%25' y='70%25' font-family='Arial' font-size='16' fill='white' text-anchor='middle' dominant-baseline='middle'%3EPuzzle%3C/text%3E%3C/svg%3E",
         iframeSrc: "https://html5.gamemondi.com/21a108c901704aa69dd6f5ab10f9c1e4/?gd_sdk_referrer_url=https://gamedistribution.com/games/element-blocks",
         featured: false,
         rating: 4.2,
@@ -60,7 +60,7 @@ const games = [
         title: "ZooBoom",
         description: "Match and connect animals in this colorful puzzle adventure.",
         category: "Puzzle",
-        imageSrc: "https://i.ibb.co/sWx6tHp/zooboom.jpg",
+        imageSrc: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200' viewBox='0 0 300 200'%3E%3Crect width='300' height='200' fill='%233b82f6'/%3E%3Ctext x='50%25' y='50%25' font-family='Arial' font-size='24' fill='white' text-anchor='middle' dominant-baseline='middle'%3EZooBoom%3C/text%3E%3Ctext x='50%25' y='70%25' font-family='Arial' font-size='16' fill='white' text-anchor='middle' dominant-baseline='middle'%3EPuzzle%3C/text%3E%3C/svg%3E",
         iframeSrc: "https://html5.gamemondi.com/0eba31e67953402c96da3aa6c5ceb2ca/?gd_sdk_referrer_url=https://gamedistribution.com/games/zooboom",
         featured: false,
         rating: 4.0,
@@ -71,7 +71,7 @@ const games = [
         title: "Moto X3M Pool Party",
         description: "Race motorcycles through water-themed obstacle courses in this thrilling racing game.",
         category: "Racing",
-        imageSrc: "https://i.ibb.co/vw1KrLT/moto-x3m.jpg",
+        imageSrc: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200' viewBox='0 0 300 200'%3E%3Crect width='300' height='200' fill='%23f59e0b'/%3E%3Ctext x='50%25' y='50%25' font-family='Arial' font-size='24' fill='white' text-anchor='middle' dominant-baseline='middle'%3EMoto X3M Pool Party%3C/text%3E%3Ctext x='50%25' y='70%25' font-family='Arial' font-size='16' fill='white' text-anchor='middle' dominant-baseline='middle'%3ERacing%3C/text%3E%3C/svg%3E",
         iframeSrc: "https://html5.gamemondi.com/99aca2cbed4f4b2583216cbb4ad51c97/?gd_sdk_referrer_url=https://gamedistribution.com/games/moto-x3m-pool-party",
         featured: false,
         rating: 4.7,
@@ -82,7 +82,7 @@ const games = [
         title: "Bubble Woods",
         description: "Pop colorful bubbles in this enchanting forest adventure.",
         category: "Puzzle",
-        imageSrc: "https://i.ibb.co/jHPR6Rn/bubble-woods.jpg",
+        imageSrc: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200' viewBox='0 0 300 200'%3E%3Crect width='300' height='200' fill='%233b82f6'/%3E%3Ctext x='50%25' y='50%25' font-family='Arial' font-size='24' fill='white' text-anchor='middle' dominant-baseline='middle'%3EBubble Woods%3C/text%3E%3Ctext x='50%25' y='70%25' font-family='Arial' font-size='16' fill='white' text-anchor='middle' dominant-baseline='middle'%3EPuzzle%3C/text%3E%3C/svg%3E",
         iframeSrc: "https://html5.gamemondi.com/3c3c196eff40482f9bd3534ae94ca40e/?gd_sdk_referrer_url=https://gamedistribution.com/games/bubble-woods",
         featured: false,
         rating: 4.1,
@@ -93,7 +93,7 @@ const games = [
         title: "3D Free Kick",
         description: "Score amazing free kicks in this realistic 3D soccer game.",
         category: "Sports",
-        imageSrc: "https://i.ibb.co/N1WFd34/3d-free-kick.jpg",
+        imageSrc: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200' viewBox='0 0 300 200'%3E%3Crect width='300' height='200' fill='%2310b981'/%3E%3Ctext x='50%25' y='50%25' font-family='Arial' font-size='24' fill='white' text-anchor='middle' dominant-baseline='middle'%3E3D Free Kick%3C/text%3E%3Ctext x='50%25' y='70%25' font-family='Arial' font-size='16' fill='white' text-anchor='middle' dominant-baseline='middle'%3ESports%3C/text%3E%3C/svg%3E",
         iframeSrc: "https://html5.gamemondi.com/e08564d11913424eb273d5d4bd53853d/?gd_sdk_referrer_url=https://gamedistribution.com/games/3d-free-kick",
         featured: false,
         rating: 4.3,
@@ -104,7 +104,7 @@ const games = [
         title: "8 Ball Billiards",
         description: "Play classic 8-ball billiards against challenging opponents.",
         category: "Sports",
-        imageSrc: "https://i.ibb.co/wpNFw0B/8-ball-billiards.jpg",
+        imageSrc: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200' viewBox='0 0 300 200'%3E%3Crect width='300' height='200' fill='%2310b981'/%3E%3Ctext x='50%25' y='50%25' font-family='Arial' font-size='24' fill='white' text-anchor='middle' dominant-baseline='middle'%3E8 Ball Billiards%3C/text%3E%3Ctext x='50%25' y='70%25' font-family='Arial' font-size='16' fill='white' text-anchor='middle' dominant-baseline='middle'%3ESports%3C/text%3E%3C/svg%3E",
         iframeSrc: "https://html5.gamemondi.com/2a51824be19f446db3bc5c91983a0f8c/?gd_sdk_referrer_url=https://gamedistribution.com/games/8-ball-billiards-classic",
         featured: false,
         rating: 4.4,
@@ -115,7 +115,7 @@ const games = [
         title: "Archery World Tour",
         description: "Test your archery skills in locations around the globe.",
         category: "Sports",
-        imageSrc: "https://i.ibb.co/PWJ9n3M/archery-world-tour.jpg",
+        imageSrc: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200' viewBox='0 0 300 200'%3E%3Crect width='300' height='200' fill='%2310b981'/%3E%3Ctext x='50%25' y='50%25' font-family='Arial' font-size='24' fill='white' text-anchor='middle' dominant-baseline='middle'%3EArchery World Tour%3C/text%3E%3Ctext x='50%25' y='70%25' font-family='Arial' font-size='16' fill='white' text-anchor='middle' dominant-baseline='middle'%3ESports%3C/text%3E%3C/svg%3E",
         iframeSrc: "https://html5.gamemondi.com/b2fd5df9f41e44a7be71edafe2d986fa/?gd_sdk_referrer_url=https://gamedistribution.com/games/archery-world-tour",
         featured: false,
         rating: 4.3,
@@ -126,7 +126,7 @@ const games = [
         title: "Totemia Cursed Marbles",
         description: "Match and shoot marbles to break the ancient curse.",
         category: "Puzzle",
-        imageSrc: "https://i.ibb.co/Vt3XcXw/totemia-cursed-marbles.jpg",
+        imageSrc: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200' viewBox='0 0 300 200'%3E%3Crect width='300' height='200' fill='%233b82f6'/%3E%3Ctext x='50%25' y='50%25' font-family='Arial' font-size='24' fill='white' text-anchor='middle' dominant-baseline='middle'%3ETotemia Cursed Marbles%3C/text%3E%3Ctext x='50%25' y='70%25' font-family='Arial' font-size='16' fill='white' text-anchor='middle' dominant-baseline='middle'%3EPuzzle%3C/text%3E%3C/svg%3E",
         iframeSrc: "https://html5.gamemondi.com/b5eb56f1ed2049639747e8ed9a1e783c/?gd_sdk_referrer_url=https://gamedistribution.com/games/totemia-cursed-marbles",
         featured: false,
         rating: 4.1,
@@ -137,7 +137,7 @@ const games = [
         title: "Table Tennis World Tour",
         description: "Compete in table tennis tournaments around the world with realistic physics.",
         category: "Sports",
-        imageSrc: "https://i.ibb.co/ZWSdSc4/table-tennis.jpg",
+        imageSrc: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200' viewBox='0 0 300 200'%3E%3Crect width='300' height='200' fill='%2310b981'/%3E%3Ctext x='50%25' y='50%25' font-family='Arial' font-size='24' fill='white' text-anchor='middle' dominant-baseline='middle'%3ETable Tennis World Tour%3C/text%3E%3Ctext x='50%25' y='70%25' font-family='Arial' font-size='16' fill='white' text-anchor='middle' dominant-baseline='middle'%3ESports%3C/text%3E%3C/svg%3E",
         iframeSrc: "https://html5.gamemondi.com/9a4a9fd7d7604b31b7fe45d1d2fd8e75/?gd_sdk_referrer_url=https://gamedistribution.com/games/table-tennis-world-tour",
         featured: false,
         rating: 4.4,
@@ -148,7 +148,7 @@ const games = [
         title: "Onet Connect Classic",
         description: "Match identical tiles to clear the board in this relaxing puzzle game.",
         category: "Puzzle",
-        imageSrc: "https://i.ibb.co/HXhSK3g/onet-connect.jpg",
+        imageSrc: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200' viewBox='0 0 300 200'%3E%3Crect width='300' height='200' fill='%233b82f6'/%3E%3Ctext x='50%25' y='50%25' font-family='Arial' font-size='24' fill='white' text-anchor='middle' dominant-baseline='middle'%3EOnet Connect Classic%3C/text%3E%3Ctext x='50%25' y='70%25' font-family='Arial' font-size='16' fill='white' text-anchor='middle' dominant-baseline='middle'%3EPuzzle%3C/text%3E%3C/svg%3E",
         iframeSrc: "https://html5.gamemondi.com/66168b65a8a24fe6b27ff13b92ab81ba/?gd_sdk_referrer_url=https://gamedistribution.com/games/onet-connect-classic",
         featured: false,
         rating: 4.3,
@@ -591,6 +591,12 @@ function openGameModal(game) {
         existingLoader.remove();
     }
     
+    // 移除之前的错误信息
+    const existingError = document.querySelector('.absolute.inset-0.flex.flex-col');
+    if (existingError) {
+        existingError.remove();
+    }
+    
     // 添加加载指示器
     gameFrame.insertAdjacentHTML('afterend', `
         <div id="game-loading" class="absolute inset-0 flex flex-col items-center justify-center bg-gray-900">
@@ -602,37 +608,70 @@ function openGameModal(game) {
     // 清除之前的iframe内容
     gameFrame.src = '';
     
-    // 设置iframe的src (使用setTimeout延迟一下加载，确保UI更新)
-    setTimeout(() => {
-        // 设置iframe的src
-        gameFrame.src = game.iframeSrc;
-        
-        // 错误处理
-        gameFrame.onerror = function() {
+    // 设置加载超时 - 15秒后显示错误
+    const loadTimeout = setTimeout(() => {
+        if (document.getElementById('game-loading')) {
+            console.error(`游戏加载超时: ${game.title}`);
             handleGameLoadError(game);
-        };
-        
-        // 监听iframe加载完成
-        gameFrame.onload = function() {
-            const loadingElement = document.getElementById('game-loading');
-            if (loadingElement) {
-                loadingElement.remove();
-            }
+        }
+    }, 15000);
+    
+    // 用Try-Catch包装，防止可能发生的错误
+    try {
+        // 设置iframe的src (使用setTimeout延迟一下加载，确保UI更新)
+        setTimeout(() => {
+            // 设置iframe的src
+            gameFrame.src = game.iframeSrc;
             
-            // 检查是否加载出错（可能被重定向到错误页面）
-            try {
-                // 尝试访问iframe内容，如果跨域将抛出错误
-                // 这只是一个尝试，大多数情况下会因为跨域限制而失败
-                const iframeContent = gameFrame.contentWindow.document.body.innerHTML;
-                if (iframeContent.includes('404') || iframeContent.includes('not exist')) {
-                    handleGameLoadError(game);
+            // 错误处理
+            gameFrame.onerror = function() {
+                clearTimeout(loadTimeout);
+                handleGameLoadError(game);
+            };
+            
+            // 监听iframe加载完成
+            gameFrame.onload = function() {
+                clearTimeout(loadTimeout); // 清除超时
+                
+                const loadingElement = document.getElementById('game-loading');
+                if (loadingElement) {
+                    loadingElement.remove();
                 }
-            } catch (e) {
-                // 跨域错误，无法检查内容，假设加载成功
-                console.log('无法检查iframe内容（跨域限制）:', e);
-            }
-        };
-    }, 100);
+                
+                // 检查是否加载出错（可能被重定向到错误页面）
+                try {
+                    // 尝试访问iframe内容，如果跨域将抛出错误
+                    // 这只是一个尝试，大多数情况下会因为跨域限制而失败
+                    const iframeContent = gameFrame.contentWindow.document.body.innerHTML;
+                    if (iframeContent && (
+                        iframeContent.includes('404') || 
+                        iframeContent.includes('not exist') || 
+                        iframeContent.includes('error') ||
+                        iframeContent.includes('无法访问')
+                    )) {
+                        handleGameLoadError(game);
+                    }
+                } catch (e) {
+                    // 跨域错误，无法检查内容，暂时假设加载成功
+                    console.log('无法检查iframe内容（跨域限制）:', e);
+                    
+                    // 尝试检测iframe是否实际加载了内容
+                    try {
+                        // 如果iframe的contentWindow为null，则可能加载失败
+                        if (!gameFrame.contentWindow) {
+                            handleGameLoadError(game);
+                        }
+                    } catch (e2) {
+                        console.error('检测iframe内容时出错:', e2);
+                    }
+                }
+            };
+        }, 100);
+    } catch (e) {
+        clearTimeout(loadTimeout);
+        console.error('设置游戏iframe时出错:', e);
+        handleGameLoadError(game);
+    }
     
     // 发送游戏打开事件到Google Analytics
     if (typeof gtag === 'function') {
@@ -658,34 +697,35 @@ function handleGameLoadError(game) {
         <div class="absolute inset-0 flex flex-col items-center justify-center bg-gray-900 p-6 text-center">
             <i class="fas fa-exclamation-triangle text-yellow-500 text-4xl mb-4"></i>
             <h3 class="text-xl font-bold mb-2">无法加载游戏</h3>
-            <p class="text-gray-400 mb-4">很抱歉，此游戏暂时无法访问。请稍后再试或选择其他游戏。</p>
-            <button id="try-direct-link" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition">
-                <i class="fas fa-external-link-alt mr-2"></i>尝试直接访问
-            </button>
+            <p class="text-gray-400 mb-4">很抱歉，此游戏暂时无法访问。可能是由于网络限制或服务器问题。</p>
+            <div class="flex flex-col md:flex-row gap-3">
+                <button id="try-html5-game" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition">
+                    <i class="fas fa-gamepad mr-2"></i>尝试HTML5版本
+                </button>
+                <button id="try-local-game" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md transition">
+                    <i class="fas fa-puzzle-piece mr-2"></i>玩本地小游戏
+                </button>
+            </div>
         </div>
     `;
     
     gameFrame.insertAdjacentHTML('afterend', errorHTML);
     
-    // 尝试直接访问游戏网站
-    const directLinkButton = document.getElementById('try-direct-link');
-    if (directLinkButton) {
-        directLinkButton.addEventListener('click', function() {
-            // 提取基础URL
-            const baseUrl = game.iframeSrc.split('/embed/')[0];
-            const gamePath = game.iframeSrc.split('/embed/')[1];
-            const directUrl = baseUrl + '/games/' + (gamePath || '');
-            
-            // 在新标签中打开
-            window.open(directUrl, '_blank');
-            
-            // 发送直接访问事件到Google Analytics
-            if (typeof gtag === 'function') {
-                gtag('event', 'direct_game_access', {
-                    'game_title': game.title,
-                    'game_id': game.id
-                });
-            }
+    // 尝试HTML5游戏版本
+    const html5Button = document.getElementById('try-html5-game');
+    if (html5Button) {
+        html5Button.addEventListener('click', function() {
+            // 打开替代游戏页面
+            const alternativeURL = getAlternativeGameURL(game.title, game.category);
+            openAlternativeGame(alternativeURL);
+        });
+    }
+    
+    // 尝试本地小游戏
+    const localGameButton = document.getElementById('try-local-game');
+    if (localGameButton) {
+        localGameButton.addEventListener('click', function() {
+            loadLocalGame(game.category);
         });
     }
     
@@ -697,6 +737,726 @@ function handleGameLoadError(game) {
             'iframe_src': game.iframeSrc
         });
     }
+}
+
+// 获取替代游戏URL
+function getAlternativeGameURL(gameTitle, category) {
+    // 根据游戏类别匹配通用的替代游戏
+    const categoryGames = {
+        'Puzzle': 'https://play.famobi.com/mahjong-relax',
+        'Action': 'https://play.famobi.com/moto-x3m',
+        'Strategy': 'https://play.famobi.com/puzzle-blocks',
+        'Racing': 'https://play.famobi.com/highway-rider-extreme',
+        'Sports': 'https://play.famobi.com/penalty-kicks'
+    };
+    
+    return categoryGames[category] || 'https://play.famobi.com/curve-ball-3d';
+}
+
+// 打开替代游戏
+function openAlternativeGame(url) {
+    const gameFrame = document.getElementById('game-frame');
+    const errorElement = document.querySelector('.absolute.inset-0.flex.flex-col');
+    
+    if (errorElement) {
+        errorElement.remove();
+    }
+    
+    // 显示加载指示器
+    gameFrame.insertAdjacentHTML('afterend', `
+        <div id="game-loading" class="absolute inset-0 flex flex-col items-center justify-center bg-gray-900">
+            <div class="loader mb-4"></div>
+            <p class="text-white">正在加载替代游戏...</p>
+        </div>
+    `);
+    
+    // 设置iframe的src
+    gameFrame.src = url;
+    
+    // 监听iframe加载完成
+    gameFrame.onload = function() {
+        const loadingElement = document.getElementById('game-loading');
+        if (loadingElement) {
+            loadingElement.remove();
+        }
+    };
+}
+
+// 加载本地小游戏
+function loadLocalGame(category) {
+    const gameFrame = document.getElementById('game-frame');
+    const errorElement = document.querySelector('.absolute.inset-0.flex.flex-col');
+    
+    if (errorElement) {
+        errorElement.remove();
+    }
+    
+    // 根据类别选择本地游戏
+    let gameHTML = '';
+    
+    switch (category.toLowerCase()) {
+        case 'puzzle':
+            gameHTML = generateMemoryGame();
+            break;
+        case 'action':
+            gameHTML = generateClickerGame();
+            break;
+        default:
+            gameHTML = generateSimpleGame();
+            break;
+    }
+    
+    // 将本地游戏注入到iframe中
+    const gameDoc = gameFrame.contentDocument || gameFrame.contentWindow.document;
+    gameDoc.open();
+    gameDoc.write(gameHTML);
+    gameDoc.close();
+}
+
+// 生成简单的内存匹配游戏
+function generateMemoryGame() {
+    return `
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>记忆配对游戏</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+                margin: 0;
+                background-color: #1a202c;
+                color: white;
+            }
+            .game-container {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 10px;
+                max-width: 400px;
+            }
+            .card {
+                width: 80px;
+                height: 80px;
+                background-color: #4a5568;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 24px;
+                cursor: pointer;
+                perspective: 1000px;
+            }
+            .card-inner {
+                width: 100%;
+                height: 100%;
+                position: relative;
+                transform-style: preserve-3d;
+                transition: transform 0.5s;
+            }
+            .card.flipped .card-inner {
+                transform: rotateY(180deg);
+            }
+            .card-front, .card-back {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                backface-visibility: hidden;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .card-front {
+                background-color: #4a5568;
+            }
+            .card-back {
+                background-color: #2d3748;
+                transform: rotateY(180deg);
+            }
+            .score {
+                margin-top: 20px;
+                font-size: 18px;
+            }
+            .restart {
+                margin-top: 20px;
+                padding: 8px 16px;
+                background-color: #4299e1;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+            .restart:hover {
+                background-color: #3182ce;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>记忆配对游戏</h1>
+        <div class="score">配对: <span id="matches">0</span> | 点击: <span id="clicks">0</span></div>
+        <div class="game-container" id="game-board"></div>
+        <button class="restart" id="restart-btn">重新开始</button>
+        
+        <script>
+            // 游戏状态
+            let cards = [];
+            let flippedCards = [];
+            let matchedPairs = 0;
+            let clickCount = 0;
+            let canFlip = true;
+            
+            // 表情符号作为卡片内容
+            const emojis = ['🐱', '🐶', '🐭', '🐹', '🐰', '🦊', '🐻', '🐼'];
+            
+            // 初始化游戏
+            function initGame() {
+                const gameBoard = document.getElementById('game-board');
+                gameBoard.innerHTML = '';
+                
+                // 重置游戏状态
+                cards = [];
+                flippedCards = [];
+                matchedPairs = 0;
+                clickCount = 0;
+                canFlip = true;
+                
+                // 更新计分板
+                document.getElementById('matches').textContent = matchedPairs;
+                document.getElementById('clicks').textContent = clickCount;
+                
+                // 创建卡片对（每个emoji两张）
+                const cardValues = [...emojis, ...emojis];
+                
+                // 随机洗牌
+                cardValues.sort(() => Math.random() - 0.5);
+                
+                // 创建卡片元素
+                cardValues.forEach((emoji, index) => {
+                    const card = document.createElement('div');
+                    card.className = 'card';
+                    card.innerHTML = \`
+                        <div class="card-inner">
+                            <div class="card-front"></div>
+                            <div class="card-back">\${emoji}</div>
+                        </div>
+                    \`;
+                    card.dataset.value = emoji;
+                    card.addEventListener('click', () => flipCard(card));
+                    gameBoard.appendChild(card);
+                    cards.push(card);
+                });
+            }
+            
+            // 翻转卡片
+            function flipCard(card) {
+                // 如果已经翻开或配对，或者当前不能翻牌，则忽略点击
+                if (card.classList.contains('flipped') || !canFlip) return;
+                
+                // 更新点击次数
+                clickCount++;
+                document.getElementById('clicks').textContent = clickCount;
+                
+                // 翻开卡片
+                card.classList.add('flipped');
+                flippedCards.push(card);
+                
+                // 如果已翻开两张牌，检查是否匹配
+                if (flippedCards.length === 2) {
+                    canFlip = false;
+                    checkMatch();
+                }
+            }
+            
+            // 检查两张翻开的卡片是否匹配
+            function checkMatch() {
+                const [card1, card2] = flippedCards;
+                
+                if (card1.dataset.value === card2.dataset.value) {
+                    // 匹配成功
+                    flippedCards = [];
+                    matchedPairs++;
+                    document.getElementById('matches').textContent = matchedPairs;
+                    canFlip = true;
+                    
+                    // 检查游戏是否结束
+                    if (matchedPairs === emojis.length) {
+                        setTimeout(() => {
+                            alert(\`恭喜你完成了游戏！共用了 \${clickCount} 次点击。\`);
+                        }, 500);
+                    }
+                } else {
+                    // 不匹配，翻回去
+                    setTimeout(() => {
+                        card1.classList.remove('flipped');
+                        card2.classList.remove('flipped');
+                        flippedCards = [];
+                        canFlip = true;
+                    }, 1000);
+                }
+            }
+            
+            // 重新开始游戏
+            document.getElementById('restart-btn').addEventListener('click', initGame);
+            
+            // 初始化游戏
+            initGame();
+        </script>
+    </body>
+    </html>
+    `;
+}
+
+// 生成简单的点击游戏
+function generateClickerGame() {
+    return `
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>快速点击游戏</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+                margin: 0;
+                background-color: #1a202c;
+                color: white;
+            }
+            .game-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+            .target {
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+                background-color: #e53e3e;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 24px;
+                cursor: pointer;
+                transition: all 0.2s;
+            }
+            .target:hover {
+                transform: scale(1.05);
+            }
+            .target:active {
+                transform: scale(0.95);
+            }
+            .score {
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+            .timer {
+                font-size: 18px;
+                margin-bottom: 30px;
+            }
+            .start-btn {
+                padding: 10px 20px;
+                background-color: #4299e1;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 16px;
+            }
+            .start-btn:hover {
+                background-color: #3182ce;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>快速点击游戏</h1>
+        <div class="timer">时间: <span id="time">30</span>秒</div>
+        <div class="score">得分: <span id="score">0</span></div>
+        
+        <div class="game-container">
+            <div class="target" id="target">点我!</div>
+            <button class="start-btn" id="start-btn">开始游戏</button>
+        </div>
+        
+        <script>
+            // 游戏状态
+            let score = 0;
+            let timeLeft = 30;
+            let gameInterval;
+            let isPlaying = false;
+            
+            // DOM元素
+            const target = document.getElementById('target');
+            const scoreDisplay = document.getElementById('score');
+            const timeDisplay = document.getElementById('time');
+            const startButton = document.getElementById('start-btn');
+            
+            // 开始游戏
+            function startGame() {
+                // 重置游戏状态
+                score = 0;
+                timeLeft = 30;
+                isPlaying = true;
+                
+                // 更新显示
+                scoreDisplay.textContent = score;
+                timeDisplay.textContent = timeLeft;
+                
+                // 隐藏开始按钮
+                startButton.style.display = 'none';
+                
+                // 显示目标
+                target.style.display = 'flex';
+                
+                // 移动目标到随机位置
+                moveTarget();
+                
+                // 设置定时器
+                gameInterval = setInterval(() => {
+                    timeLeft--;
+                    timeDisplay.textContent = timeLeft;
+                    
+                    if (timeLeft <= 0) {
+                        endGame();
+                    }
+                }, 1000);
+            }
+            
+            // 结束游戏
+            function endGame() {
+                clearInterval(gameInterval);
+                isPlaying = false;
+                
+                // 显示成绩
+                alert(\`游戏结束! 你的得分是: \${score}\`);
+                
+                // 显示开始按钮
+                startButton.style.display = 'block';
+                
+                // 隐藏目标
+                target.style.display = 'none';
+            }
+            
+            // 移动目标到随机位置
+            function moveTarget() {
+                // 获取游戏容器尺寸
+                const gameContainer = document.querySelector('.game-container');
+                const containerRect = gameContainer.getBoundingClientRect();
+                
+                // 目标尺寸
+                const targetSize = 80;
+                
+                // 随机位置 (确保在容器内)
+                const maxX = containerRect.width - targetSize;
+                const maxY = containerRect.height - targetSize;
+                
+                // 设置随机位置
+                const randomX = Math.floor(Math.random() * maxX) - maxX / 2;
+                const randomY = Math.floor(Math.random() * maxY) - maxY / 2;
+                
+                target.style.transform = \`translate(\${randomX}px, \${randomY}px)\`;
+                
+                // 随机颜色
+                const colors = ['#e53e3e', '#38a169', '#4299e1', '#805ad5', '#d69e2e'];
+                const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                target.style.backgroundColor = randomColor;
+            }
+            
+            // 点击目标
+            target.addEventListener('click', () => {
+                if (!isPlaying) return;
+                
+                // 增加分数
+                score++;
+                scoreDisplay.textContent = score;
+                
+                // 移动目标
+                moveTarget();
+            });
+            
+            // 开始按钮点击
+            startButton.addEventListener('click', startGame);
+            
+            // 初始隐藏目标
+            target.style.display = 'none';
+        </script>
+    </body>
+    </html>
+    `;
+}
+
+// 生成简单的小游戏
+function generateSimpleGame() {
+    return `
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>躲避方块游戏</title>
+        <style>
+            body {
+                margin: 0;
+                overflow: hidden;
+                background-color: #1a202c;
+            }
+            #game-canvas {
+                display: block;
+                background-color: #1a202c;
+            }
+            .game-over {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-color: rgba(0, 0, 0, 0.8);
+                color: white;
+                padding: 20px;
+                border-radius: 8px;
+                text-align: center;
+                display: none;
+            }
+            .game-over button {
+                margin-top: 15px;
+                padding: 8px 16px;
+                background-color: #4299e1;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+            .game-score {
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                color: white;
+                font-family: Arial, sans-serif;
+                font-size: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <canvas id="game-canvas"></canvas>
+        <div class="game-score">分数: <span id="score">0</span></div>
+        <div class="game-over" id="game-over">
+            <h2>游戏结束</h2>
+            <p>你的分数: <span id="final-score">0</span></p>
+            <button id="restart-btn">重新开始</button>
+        </div>
+        
+        <script>
+            // 获取画布和上下文
+            const canvas = document.getElementById('game-canvas');
+            const ctx = canvas.getContext('2d');
+            
+            // 设置画布大小为窗口大小
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            
+            // 游戏状态
+            let score = 0;
+            let animationId;
+            let gameOver = false;
+            
+            // 玩家对象
+            const player = {
+                x: canvas.width / 2,
+                y: canvas.height - 50,
+                size: 30,
+                color: '#4299e1',
+                speed: 5
+            };
+            
+            // 障碍物数组
+            let obstacles = [];
+            
+            // 控制状态
+            const keys = {
+                ArrowLeft: false,
+                ArrowRight: false
+            };
+            
+            // 键盘事件监听
+            window.addEventListener('keydown', (e) => {
+                if (keys.hasOwnProperty(e.code)) {
+                    keys[e.code] = true;
+                }
+            });
+            
+            window.addEventListener('keyup', (e) => {
+                if (keys.hasOwnProperty(e.code)) {
+                    keys[e.code] = false;
+                }
+            });
+            
+            // 触摸控制
+            let touchStartX = 0;
+            canvas.addEventListener('touchstart', (e) => {
+                touchStartX = e.touches[0].clientX;
+            });
+            
+            canvas.addEventListener('touchmove', (e) => {
+                e.preventDefault();
+                const touchX = e.touches[0].clientX;
+                const diff = touchX - touchStartX;
+                
+                if (diff > 0) {
+                    keys.ArrowRight = true;
+                    keys.ArrowLeft = false;
+                } else {
+                    keys.ArrowLeft = true;
+                    keys.ArrowRight = false;
+                }
+                
+                touchStartX = touchX;
+            });
+            
+            canvas.addEventListener('touchend', () => {
+                keys.ArrowLeft = false;
+                keys.ArrowRight = false;
+            });
+            
+            // 创建障碍物
+            function createObstacle() {
+                const size = Math.random() * 30 + 20;
+                obstacles.push({
+                    x: Math.random() * (canvas.width - size),
+                    y: -size,
+                    size: size,
+                    color: getRandomColor(),
+                    speed: Math.random() * 3 + 1
+                });
+            }
+            
+            // 获取随机颜色
+            function getRandomColor() {
+                const colors = ['#e53e3e', '#38a169', '#805ad5', '#d69e2e', '#f56565'];
+                return colors[Math.floor(Math.random() * colors.length)];
+            }
+            
+            // 绘制玩家
+            function drawPlayer() {
+                ctx.beginPath();
+                ctx.rect(player.x - player.size/2, player.y - player.size/2, player.size, player.size);
+                ctx.fillStyle = player.color;
+                ctx.fill();
+                ctx.closePath();
+            }
+            
+            // 绘制障碍物
+            function drawObstacles() {
+                obstacles.forEach(obstacle => {
+                    ctx.beginPath();
+                    ctx.rect(obstacle.x, obstacle.y, obstacle.size, obstacle.size);
+                    ctx.fillStyle = obstacle.color;
+                    ctx.fill();
+                    ctx.closePath();
+                });
+            }
+            
+            // 更新游戏状态
+            function update() {
+                // 移动玩家
+                if (keys.ArrowLeft && player.x > player.size/2) {
+                    player.x -= player.speed;
+                }
+                if (keys.ArrowRight && player.x < canvas.width - player.size/2) {
+                    player.x += player.speed;
+                }
+                
+                // 更新障碍物位置
+                obstacles.forEach((obstacle, index) => {
+                    obstacle.y += obstacle.speed;
+                    
+                    // 检查是否超出画布底部
+                    if (obstacle.y > canvas.height) {
+                        obstacles.splice(index, 1);
+                        score++;
+                        document.getElementById('score').textContent = score;
+                    }
+                    
+                    // 碰撞检测
+                    if (
+                        player.x + player.size/2 > obstacle.x &&
+                        player.x - player.size/2 < obstacle.x + obstacle.size &&
+                        player.y + player.size/2 > obstacle.y &&
+                        player.y - player.size/2 < obstacle.y + obstacle.size
+                    ) {
+                        endGame();
+                    }
+                });
+                
+                // 按照得分难度增加
+                if (Math.random() < 0.02 + Math.min(0.03, score / 1000)) {
+                    createObstacle();
+                }
+            }
+            
+            // 游戏循环
+            function gameLoop() {
+                if (gameOver) return;
+                
+                // 清空画布
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                // 更新游戏状态
+                update();
+                
+                // 绘制游戏元素
+                drawPlayer();
+                drawObstacles();
+                
+                // 请求下一帧动画
+                animationId = requestAnimationFrame(gameLoop);
+            }
+            
+            // 结束游戏
+            function endGame() {
+                gameOver = true;
+                cancelAnimationFrame(animationId);
+                
+                document.getElementById('final-score').textContent = score;
+                document.getElementById('game-over').style.display = 'block';
+            }
+            
+            // 重新开始游戏
+            function restartGame() {
+                obstacles = [];
+                score = 0;
+                gameOver = false;
+                player.x = canvas.width / 2;
+                
+                document.getElementById('score').textContent = score;
+                document.getElementById('game-over').style.display = 'none';
+                
+                gameLoop();
+            }
+            
+            // 重新开始按钮事件
+            document.getElementById('restart-btn').addEventListener('click', restartGame);
+            
+            // 调整窗口大小
+            window.addEventListener('resize', () => {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+                player.y = canvas.height - 50;
+            });
+            
+            // 开始游戏
+            restartGame();
+        </script>
+    </body>
+    </html>
+    `;
 }
 
 // 设置轮播控制
