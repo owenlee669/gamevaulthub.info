@@ -1,0 +1,579 @@
+/* 基础样式 */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #0a0c14;
+    color: #fff;
+}
+
+/* 游戏容器样式 */
+.game-container {
+    background-color: #f0f0f0;
+    aspect-ratio: 16/9;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.dark .game-container {
+    background-color: #1f2937;
+}
+
+.game-container:hover {
+    transform: translateY(-3px);
+}
+
+.game-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* 游戏卡片样式 */
+.game-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    background-color: #1a2035;
+    margin-bottom: 8px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.game-card:hover {
+    transform: translateY(-3px);
+}
+
+.game-card .game-image {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    display: block;
+}
+
+.game-card .game-info {
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    position: relative;
+}
+
+.game-card h3 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: #fff;
+}
+
+.game-card .game-description {
+    margin-top: 3px;
+    color: #a0aec0;
+    font-size: 0.75rem;
+    line-height: 1.2;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    flex: 1;
+}
+
+.game-card .play-now-btn {
+    margin-top: 0;
+    padding: 4px 10px;
+    background-color: white;
+    color: black;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 0.7rem;
+    transition: opacity 0.2s ease;
+    text-decoration: none;
+    text-align: center;
+    width: fit-content;
+}
+
+.game-card .play-now-btn:hover {
+    opacity: 0.9;
+}
+
+/* 返回顶部按钮 */
+#back-to-top {
+    opacity: 0;
+    visibility: hidden;
+}
+
+#back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* 加载动画 */
+.loader {
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #6366f1;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+.dark .loader {
+    border-color: #1f2937;
+    border-top-color: #6366f1;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* 游戏模态框 */
+.modal {
+    background-color: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.modal.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background-color: white;
+    width: 90%;
+    max-width: 800px;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.dark .modal-content {
+    background-color: #1f2937;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.dark .modal-header {
+    border-bottom-color: #374151;
+}
+
+.modal-body {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #6b7280;
+    transition: color 0.2s;
+}
+
+.modal-close:hover {
+    color: #ef4444;
+}
+
+/* 淡入动画 */
+.fade-in {
+    animation: fadeIn 0.4s ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 动画延迟 */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+    }
+    
+    .game-container {
+        aspect-ratio: 16/10;
+    }
+}
+
+@media (max-width: 640px) {
+    .game-container {
+        aspect-ratio: 16/12;
+    }
+}
+
+/* 游戏评分星星 */
+.star-rating {
+    display: inline-flex;
+    color: #d1d5db;
+}
+
+.star-rating .star-filled {
+    color: #f59e0b;
+}
+
+/* 自定义滚动条 */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.dark ::-webkit-scrollbar-track {
+    background: #1f2937;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c5c5c5;
+    border-radius: 3px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background: #4b5563;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a0a0a0;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+    background: #6b7280;
+}
+
+/* 主题切换按钮 */
+#theme-toggle .toggle-dot {
+    transition: transform 0.3s ease;
+}
+
+#theme-toggle.dark .toggle-dot {
+    transform: translateX(20px);
+}
+
+/* 精选游戏轮播 */
+.featured-games-container {
+    width: 100%;
+    position: relative;
+}
+
+.featured-game {
+    width: 100%;
+    flex-shrink: 0;
+    padding: 0 6px;
+    box-sizing: border-box;
+}
+
+.featured-game-content {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 21/9;
+}
+
+.featured-game-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+    color: white;
+}
+
+/* 精选游戏的类别标签 */
+.featured-category {
+    top: 15px;
+    right: 15px;
+    font-size: 0.8rem;
+    padding: 3px 10px;
+    z-index: 10;
+}
+
+/* 游戏评分和播放次数 */
+.game-rating {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    padding: 3px 8px;
+    width: fit-content;
+}
+
+.rating-stars {
+    color: #ffc107;
+    font-size: 0.8rem;
+    line-height: 1;
+    margin-bottom: 2px;
+}
+
+.game-plays {
+    color: #a0aec0;
+    font-size: 0.7rem;
+    white-space: nowrap;
+}
+
+/* 精选游戏的评分 */
+.featured-rating {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    padding: 3px 8px;
+}
+
+.featured-rating .rating-stars {
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
+
+.featured-rating .game-plays {
+    color: #e5e7eb;
+    font-size: 0.75rem;
+}
+
+/* 游戏筛选按钮 */
+.game-filter button {
+    transition: all 0.2s ease;
+}
+
+.game-filter button:hover {
+    background-color: #374151;
+}
+
+.game-filter button.active {
+    background-color: #1f2937;
+}
+
+/* 页脚 */
+footer a {
+    transition: color 0.2s ease;
+}
+
+footer a:hover {
+    color: white;
+}
+
+/* 游戏模态框 */
+#game-modal {
+    transition: opacity 0.3s ease;
+}
+
+#game-modal.active {
+    display: flex;
+    opacity: 1;
+}
+
+#close-modal {
+    transition: color 0.2s ease;
+}
+
+#close-modal:hover {
+    color: white;
+}
+
+/* 主题图标切换 */
+.light-icon {
+    display: none;
+}
+
+.dark-icon {
+    display: inline-block;
+}
+
+body.light-theme {
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+body.light-theme .bg-gray-900 {
+    background-color: #e5e7eb;
+}
+
+body.light-theme .bg-gray-950 {
+    background-color: #ffffff;
+}
+
+body.light-theme .text-gray-400 {
+    color: #666;
+}
+
+body.light-theme #theme-toggle .toggle-dot {
+    transform: translateX(20px);
+}
+
+body.light-theme .light-icon {
+    display: inline-block;
+}
+
+body.light-theme .dark-icon {
+    display: none;
+}
+
+body.light-theme .game-card {
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+body.light-theme .game-card h3 {
+    color: #333;
+}
+
+body.light-theme .game-card .game-description {
+    color: #666;
+}
+
+body.light-theme .game-card .play-now-btn {
+    background-color: #3b82f6;
+    color: white;
+}
+
+body.light-theme .game-rating {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+body.light-theme .rating-stars {
+    color: #f59e0b;
+}
+
+body.light-theme .game-plays {
+    color: #666;
+}
+
+body.light-theme footer {
+    border-top-color: #e5e7eb;
+}
+
+body.light-theme .game-filter button {
+    background-color: #e5e7eb;
+    color: #666;
+}
+
+body.light-theme .game-filter button.active,
+body.light-theme .game-filter button:first-child {
+    background-color: #3b82f6;
+    color: white;
+}
+
+/* 游戏类别标签 */
+.game-category {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #333;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    z-index: 2;
+}
+
+/* 游戏卡片底部布局 */
+.game-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+    width: 100%;
+}
+
+.featured-game-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.featured-game-footer .play-now-btn {
+    margin-top: 0;
+}
+
+body.light-theme .featured-game-footer .play-now-btn,
+body.light-theme .game-card .play-now-btn {
+    background-color: #3b82f6;
+    color: white;
+}
+
+/* 搜索功能样式 */
+#search-input, #mobile-search-input {
+    transition: all 0.3s ease;
+}
+
+#search-input:focus, #mobile-search-input:focus {
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.4);
+}
+
+#mobile-search {
+    transition: max-height 0.3s ease;
+    overflow: hidden;
+}
+
+#mobile-search.show {
+    display: block;
+}
+
+.search-highlight {
+    background-color: rgba(99, 102, 241, 0.2);
+    padding: 0 2px;
+    border-radius: 2px;
+}
+
+/* 搜索框在亮色主题下的样式 */
+body.light-theme #search-input,
+body.light-theme #mobile-search-input {
+    background-color: #e5e7eb;
+    color: #333;
+}
+
+body.light-theme #mobile-search {
+    background-color: #e5e7eb;
+}
+
+body.light-theme #no-search-results i {
+    color: #cbd5e0;
+} 
