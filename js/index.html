@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameVault - 在线游戏平台</title>
+    <meta name="description" content="免费在线游戏集合，无需下载，直接在浏览器中玩">
+    <meta name="keywords" content="在线游戏,免费游戏,网页游戏,HTML5游戏">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 自定义配置 -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {}
+            }
+        }
+        
+        // 调试信息
+        console.log('页面开始加载...');
+        window.addEventListener('load', function() {
+            console.log('页面完全加载完成');
+        });
+        
+        // 错误处理
+        window.addEventListener('error', function(e) {
+            console.error('全局错误:', e.message, e.filename, e.lineno);
+        });
+    </script>
+    <!-- 字体图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- 自定义CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35E1G2VQD1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-35E1G2VQD1');
+    </script>
+</head>
+<body class="bg-gray-950 text-white transition-colors duration-300">
+    <!-- 导航栏 -->
+    <nav class="py-4 px-6 flex justify-between items-center">
+        <div class="flex items-center">
+            <i class="fas fa-gamepad mr-2"></i>
+            <h1 class="text-xl font-bold">GameVault</h1>
+        </div>
+        <div class="flex items-center gap-4">
+            <!-- 搜索框 -->
+            <div class="relative hidden md:block">
+                <input type="text" id="search-input" placeholder="搜索游戏..." class="bg-gray-800 text-white text-sm rounded-lg px-4 py-2 pl-10 w-64 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <div class="absolute inset-y-0 left-0 flex items-center pl-3">
+                    <i class="fas fa-search text-gray-400"></i>
+                </div>
+            </div>
+            <!-- 移动设备搜索按钮 -->
+            <button id="mobile-search-button" class="md:hidden text-white">
+                <i class="fas fa-search"></i>
+            </button>
+            <!-- 主题切换按钮 -->
+            <button id="theme-toggle" class="flex items-center">
+                <span class="relative inline-block w-10 h-5 rounded-full bg-gray-700">
+                    <span class="toggle-dot absolute left-0.5 top-0.5 w-4 h-4 rounded-full bg-white transition-transform duration-300"></span>
+                </span>
+                <i class="fas fa-sun text-yellow-400 ml-2 light-icon"></i>
+                <i class="fas fa-moon ml-2 dark-icon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- 移动设备搜索框 -->
+    <div id="mobile-search" class="px-6 py-2 bg-gray-900 hidden md:hidden">
+        <div class="relative">
+            <input type="text" id="mobile-search-input" placeholder="搜索游戏..." class="bg-gray-800 text-white text-sm rounded-lg px-4 py-2 pl-10 w-full focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <div class="absolute inset-y-0 left-0 flex items-center pl-3">
+                <i class="fas fa-search text-gray-400"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- 主横幅 -->
+    <div class="py-16 px-6 text-center">
+        <h2 class="text-4xl md:text-5xl font-bold mb-3">Play Awesome Games Online</h2>
+        <p class="text-gray-400 max-w-2xl mx-auto">Discover and enjoy a collection of free online games. No downloads required - play instantly in your browser!</p>
+    </div>
+
+    <!-- 精选游戏 -->
+    <section class="px-6 mb-12">
+        <h3 class="text-2xl font-bold mb-6">Featured Games</h3>
+        <div class="relative">
+            <div class="featured-games-container overflow-hidden">
+                <div id="featured-games" class="flex transition-transform duration-500">
+                    <!-- 游戏将通过JS添加 -->
+                </div>
+            </div>
+            <!-- 翻页按钮 -->
+            <button id="prev-slide" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button id="next-slide" class="absolute right-2 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <!-- 轮播指示器 -->
+            <div class="flex justify-center gap-1 mt-4" id="slide-indicators">
+                <button class="w-2 h-2 rounded-full bg-white"></button>
+                <button class="w-2 h-2 rounded-full bg-gray-600"></button>
+                <button class="w-2 h-2 rounded-full bg-gray-600"></button>
+                <button class="w-2 h-2 rounded-full bg-gray-600"></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 所有游戏 -->
+    <section class="px-6 mb-16 bg-gray-900 py-8">
+        <div class="flex justify-between items-center mb-6">
+            <h3 class="text-2xl font-bold">All Games</h3>
+            <div class="game-filter flex gap-2">
+                <button class="px-3 py-1 rounded-md bg-gray-800 text-white">All</button>
+                <button class="px-3 py-1 rounded-md text-gray-400">Action</button>
+                <button class="px-3 py-1 rounded-md text-gray-400">Puzzle</button>
+                <button class="px-3 py-1 rounded-md text-gray-400">Sports</button>
+            </div>
+        </div>
+        
+        <!-- 无搜索结果提示 -->
+        <div id="no-search-results" class="hidden py-10 text-center">
+            <i class="fas fa-search text-gray-600 text-4xl mb-4"></i>
+            <h3 class="text-xl font-bold mb-2">没有找到游戏</h3>
+            <p class="text-gray-400">尝试使用其他关键词搜索</p>
+        </div>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" id="all-games">
+            <!-- 游戏将通过JS添加 -->
+            <div id="games-loading" class="col-span-full text-center py-10">
+                <div class="loader"></div>
+                <p class="mt-4 text-gray-400">加载游戏中...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="py-6 px-6 border-t border-gray-800 text-gray-500">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+            <div>
+                <p>© 2023 GameVault. All rights reserved.</p>
+            </div>
+            <div class="flex gap-6">
+                <a href="#" class="hover:text-white transition">Privacy Policy</a>
+                <a href="#" class="hover:text-white transition">Terms of Service</a>
+                <a href="#" class="hover:text-white transition">Contact Us</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 游戏模态框 -->
+    <div id="game-modal" class="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center hidden">
+        <div class="w-full max-w-4xl bg-gray-900 rounded-lg overflow-hidden">
+            <div class="p-4 flex justify-between items-center border-b border-gray-800">
+                <h3 id="modal-game-title" class="text-xl font-bold">Game Title</h3>
+                <button id="close-modal" class="text-gray-400 hover:text-white">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <div class="aspect-video">
+                <iframe id="game-frame" class="w-full h-full" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- 调试信息 -->
+    <div id="debug-info" style="display: none;">
+        <p>浏览器: <span id="browser-info"></span></p>
+        <p>屏幕尺寸: <span id="screen-info"></span></p>
+        <p>JavaScript状态: <span id="js-status"></span></p>
+    </div>
+
+    <script>
+        // 简单的调试脚本
+        document.getElementById('browser-info').textContent = navigator.userAgent;
+        document.getElementById('screen-info').textContent = `${window.innerWidth}x${window.innerHeight}`;
+        document.getElementById('js-status').textContent = '已加载';
+        
+        // 检查游戏容器是否存在
+        window.addEventListener('DOMContentLoaded', function() {
+            if (document.getElementById('all-games')) {
+                console.log('游戏容器已找到');
+            } else {
+                console.error('找不到游戏容器!');
+            }
+        });
+    </script>
+
+    <!-- JavaScript -->
+    <script src="js/image-proxy.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html> 

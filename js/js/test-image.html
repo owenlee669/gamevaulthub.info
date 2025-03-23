@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片加载测试</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .test-container {
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin-bottom: 10px;
+        }
+        h2 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>游戏图片加载测试</h1>
+    
+    <div class="test-container">
+        <h2>Bubble Tower 3D</h2>
+        <img src="https://img.gamedistribution.com/d1d6a8d1447f44a387dad4249ba07c44-512x384.jpeg" 
+             alt="Bubble Tower 3D"
+             onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'200\' viewBox=\'0 0 300 200\'%3E%3Crect width=\'300\' height=\'200\' fill=\'%23336699\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Arial\' font-size=\'24\' fill=\'%23fff\'%3EBubble Tower 3D%3C/text%3E%3C/svg%3E';">
+        <p>URL: https://img.gamedistribution.com/d1d6a8d1447f44a387dad4249ba07c44-512x384.jpeg</p>
+    </div>
+    
+    <div class="test-container">
+        <h2>Tower Crash 3D</h2>
+        <img src="https://img.gamedistribution.com/4603fe3a3fee4688a3fa3e61bfc4a6fd-512x384.jpeg" 
+             alt="Tower Crash 3D"
+             onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'200\' viewBox=\'0 0 300 200\'%3E%3Crect width=\'300\' height=\'200\' fill=\'%239966cc\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Arial\' font-size=\'24\' fill=\'%23fff\'%3ETower Crash 3D%3C/text%3E%3C/svg%3E';">
+        <p>URL: https://img.gamedistribution.com/4603fe3a3fee4688a3fa3e61bfc4a6fd-512x384.jpeg</p>
+    </div>
+
+    <div class="test-container">
+        <h2>Garden Bloom</h2>
+        <img src="https://img.itch.zone/aW1nLzMyNDU0ODEucG5n/315x250%23c/oZZXJr.png" 
+             alt="Garden Bloom"
+             onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'200\' viewBox=\'0 0 300 200\'%3E%3Crect width=\'300\' height=\'200\' fill=\'%233399cc\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Arial\' font-size=\'24\' fill=\'%23fff\'%3EGarden Bloom%3C/text%3E%3C/svg%3E';">
+        <p>URL: https://img.itch.zone/aW1nLzMyNDU0ODEucG5n/315x250%23c/oZZXJr.png</p>
+    </div>
+
+    <div class="test-container">
+        <h2>从其他源加载测试</h2>
+        <img src="https://placehold.co/512x384?text=Game+Test+Image" 
+             alt="Placeholder Test"
+             onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'200\' viewBox=\'0 0 300 200\'%3E%3Crect width=\'300\' height=\'200\' fill=\'%23999999\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Arial\' font-size=\'24\' fill=\'%23fff\'%3EPlaceholder%3C/text%3E%3C/svg%3E';">
+        <p>URL: https://placehold.co/512x384?text=Game+Test+Image</p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                img.addEventListener('load', function() {
+                    const container = this.closest('.test-container');
+                    const status = document.createElement('p');
+                    status.textContent = '✅ 图片加载成功';
+                    status.style.color = 'green';
+                    status.style.fontWeight = 'bold';
+                    container.appendChild(status);
+                });
+                
+                img.addEventListener('error', function() {
+                    if (this.src.startsWith('data:')) {
+                        const container = this.closest('.test-container');
+                        const status = document.createElement('p');
+                        status.textContent = '❌ 图片加载失败，已显示替代图片';
+                        status.style.color = 'red';
+                        status.style.fontWeight = 'bold';
+                        container.appendChild(status);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html> 
