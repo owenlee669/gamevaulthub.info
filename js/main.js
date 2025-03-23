@@ -311,7 +311,7 @@ function renderFeaturedGames() {
                         <div class="rating-stars">${stars}</div>
                         <span class="game-plays">${game.plays} Plays</span>
                     </div>
-                    <button class="play-now-btn bg-white text-black px-4 py-2 rounded-md font-medium">Play Now</button>
+                    <button class="play-now-btn bg-white text-black px-4 py-2 rounded-md font-medium hover:bg-gray-200">Play Now</button>
                 </div>
             </div>
         `;
@@ -323,9 +323,25 @@ function renderFeaturedGames() {
         gameElement.appendChild(gameContent);
         container.appendChild(gameElement);
         
-        // 添加点击事件
+        // 添加点击事件 - 修复：确保点击整个卡片不会触发打开游戏
+        gameElement.addEventListener('click', (e) => {
+            // 只有当点击的是Play Now按钮时才打开游戏模态框
+            if (e.target.closest('.play-now-btn')) {
+                e.preventDefault();
+                e.stopPropagation();
+                openGameModal(game);
+            }
+        });
+        
+        // 专门为Play Now按钮添加点击事件
         const playButton = gameElement.querySelector('.play-now-btn');
-        playButton.addEventListener('click', () => openGameModal(game));
+        if (playButton) {
+            playButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                openGameModal(game);
+            });
+        }
     });
     
     console.log('精选游戏渲染完成');
@@ -436,12 +452,25 @@ function renderAllGames() {
         const imageContainer = gameCard.querySelector('.game-image-container');
         imageContainer.appendChild(gameImage);
         
-        // 添加点击事件
-        const playButton = gameCard.querySelector('.play-now-btn');
-        playButton.addEventListener('click', (e) => {
-            e.preventDefault();
-            openGameModal(game);
+        // 添加点击事件 - 修复：确保点击整个卡片不会触发打开游戏
+        gameCard.addEventListener('click', (e) => {
+            // 只有当点击的是Play Now按钮时才打开游戏模态框
+            if (e.target.closest('.play-now-btn')) {
+                e.preventDefault();
+                e.stopPropagation();
+                openGameModal(game);
+            }
         });
+        
+        // 专门为Play Now按钮添加点击事件
+        const playButton = gameCard.querySelector('.play-now-btn');
+        if (playButton) {
+            playButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                openGameModal(game);
+            });
+        }
         
         container.appendChild(gameCard);
     });
@@ -548,7 +577,19 @@ function openGameModal(game) {
         return;
     }
     
+    // 确保模态框可见
+    if (gameModal.classList.contains('hidden')) {
+        gameModal.classList.remove('hidden');
+    }
+    gameModal.classList.add('active');
+    
     modalTitle.textContent = game.title;
+    
+    // 移除之前的加载指示器
+    const existingLoader = document.getElementById('game-loading');
+    if (existingLoader) {
+        existingLoader.remove();
+    }
     
     // 添加加载指示器
     gameFrame.insertAdjacentHTML('afterend', `
@@ -558,37 +599,40 @@ function openGameModal(game) {
         </div>
     `);
     
-    // 设置iframe的src
-    gameFrame.src = game.iframeSrc;
+    // 清除之前的iframe内容
+    gameFrame.src = '';
     
-    // 错误处理
-    gameFrame.onerror = function() {
-        handleGameLoadError(game);
-    };
-    
-    // 监听iframe加载完成
-    gameFrame.onload = function() {
-        const loadingElement = document.getElementById('game-loading');
-        if (loadingElement) {
-            loadingElement.remove();
-        }
+    // 设置iframe的src (使用setTimeout延迟一下加载，确保UI更新)
+    setTimeout(() => {
+        // 设置iframe的src
+        gameFrame.src = game.iframeSrc;
         
-        // 检查是否加载出错（可能被重定向到错误页面）
-        try {
-            // 尝试访问iframe内容，如果跨域将抛出错误
-            // 这只是一个尝试，大多数情况下会因为跨域限制而失败
-            const iframeContent = gameFrame.contentWindow.document.body.innerHTML;
-            if (iframeContent.includes('404') || iframeContent.includes('not exist')) {
-                handleGameLoadError(game);
+        // 错误处理
+        gameFrame.onerror = function() {
+            handleGameLoadError(game);
+        };
+        
+        // 监听iframe加载完成
+        gameFrame.onload = function() {
+            const loadingElement = document.getElementById('game-loading');
+            if (loadingElement) {
+                loadingElement.remove();
             }
-        } catch (e) {
-            // 跨域错误，无法检查内容，假设加载成功
-            console.log('无法检查iframe内容（跨域限制）:', e);
-        }
-    };
-    
-    gameModal.classList.remove('hidden');
-    gameModal.classList.add('active');
+            
+            // 检查是否加载出错（可能被重定向到错误页面）
+            try {
+                // 尝试访问iframe内容，如果跨域将抛出错误
+                // 这只是一个尝试，大多数情况下会因为跨域限制而失败
+                const iframeContent = gameFrame.contentWindow.document.body.innerHTML;
+                if (iframeContent.includes('404') || iframeContent.includes('not exist')) {
+                    handleGameLoadError(game);
+                }
+            } catch (e) {
+                // 跨域错误，无法检查内容，假设加载成功
+                console.log('无法检查iframe内容（跨域限制）:', e);
+            }
+        };
+    }, 100);
     
     // 发送游戏打开事件到Google Analytics
     if (typeof gtag === 'function') {
