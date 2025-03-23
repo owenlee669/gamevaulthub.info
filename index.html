@@ -1,203 +1,668 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GameVault - 在线游戏平台</title>
-    <meta name="description" content="免费在线游戏集合，无需下载，直接在浏览器中玩">
-    <meta name="keywords" content="在线游戏,免费游戏,网页游戏,HTML5游戏">
+    <title>GameVaultHub - Play Free Online Games</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- 自定义配置 -->
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
-                extend: {}
-            }
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        secondary: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            400: '#94a3b8',
+                            500: '#64748b',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1e293b',
+                            900: '#0f172a',
+                        },
+                        darkblue: '#0a0f1e',
+                    },
+                },
+            },
         }
-        
-        // 调试信息
-        console.log('页面开始加载...');
-        window.addEventListener('load', function() {
-            console.log('页面完全加载完成');
-        });
-        
-        // 错误处理
-        window.addEventListener('error', function(e) {
-            console.error('全局错误:', e.message, e.filename, e.lineno);
-        });
     </script>
-    <!-- 字体图标 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- 自定义CSS -->
-    <link rel="stylesheet" href="css/styles.css">
-    
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35E1G2VQD1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-35E1G2VQD1');
-    </script>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fadein {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+        .card-container > div {
+            animation: fadeIn 0.5s ease-out forwards;
+            opacity: 0;
+        }
+        .card-container > div:nth-child(1) { animation-delay: 0.1s; }
+        .card-container > div:nth-child(2) { animation-delay: 0.2s; }
+        .card-container > div:nth-child(3) { animation-delay: 0.3s; }
+        .card-container > div:nth-child(4) { animation-delay: 0.4s; }
+        .game-card {
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .game-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+        }
+        .play-btn:hover {
+            transform: scale(1.05);
+        }
+        .category-badge {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            font-size: 12px;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: white;
+        }
+    </style>
 </head>
-<body class="bg-gray-950 text-white transition-colors duration-300">
-    <!-- 导航栏 -->
-    <nav class="py-4 px-6 flex justify-between items-center">
-        <div class="flex items-center">
-            <i class="fas fa-gamepad mr-2"></i>
-            <h1 class="text-xl font-bold">GameVault</h1>
-        </div>
-        <div class="flex items-center gap-4">
-            <!-- 搜索框 -->
-            <div class="relative hidden md:block">
-                <input type="text" id="search-input" placeholder="搜索游戏..." class="bg-gray-800 text-white text-sm rounded-lg px-4 py-2 pl-10 w-64 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                <div class="absolute inset-y-0 left-0 flex items-center pl-3">
-                    <i class="fas fa-search text-gray-400"></i>
+<body class="bg-darkblue text-white">
+    <header class="sticky top-0 z-50 bg-darkblue py-3 px-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="#" class="flex items-center">
+                    <i class="fa-solid fa-gamepad mr-2"></i>
+                    <h1 class="text-xl font-bold text-white">GameVaultHub</h1>
+                </a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="relative">
+                    <input type="text" placeholder="Search..." class="bg-secondary-800 text-white px-4 py-1 rounded-md w-40 text-sm focus:outline-none focus:ring-1 focus:ring-primary-400">
+                    <button class="absolute right-2 top-1/2 transform -translate-y-1/2 text-secondary-400 hover:text-primary-400">
+                        <i class="fa-solid fa-search text-sm"></i>
+                    </button>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <i class="fa-solid fa-sun text-sm"></i>
+                    <div class="relative inline-block w-8 align-middle select-none">
+                        <input type="checkbox" id="theme-toggle" class="absolute block w-4 h-4 bg-white rounded-full appearance-none cursor-pointer checked:right-0 checked:top-0 top-0 right-4"/>
+                        <label for="theme-toggle" class="block h-4 overflow-hidden bg-gray-600 rounded-full cursor-pointer"></label>
+                    </div>
                 </div>
             </div>
-            <!-- 移动设备搜索按钮 -->
-            <button id="mobile-search-button" class="md:hidden text-white">
-                <i class="fas fa-search"></i>
-            </button>
-            <!-- 主题切换按钮 -->
-            <button id="theme-toggle" class="flex items-center">
-                <span class="relative inline-block w-10 h-5 rounded-full bg-gray-700">
-                    <span class="toggle-dot absolute left-0.5 top-0.5 w-4 h-4 rounded-full bg-white transition-transform duration-300"></span>
-                </span>
-                <i class="fas fa-sun text-yellow-400 ml-2 light-icon"></i>
-                <i class="fas fa-moon ml-2 dark-icon"></i>
-            </button>
         </div>
-    </nav>
+    </header>
 
-    <!-- 移动设备搜索框 -->
-    <div id="mobile-search" class="px-6 py-2 bg-gray-900 hidden md:hidden">
-        <div class="relative">
-            <input type="text" id="mobile-search-input" placeholder="搜索游戏..." class="bg-gray-800 text-white text-sm rounded-lg px-4 py-2 pl-10 w-full focus:outline-none focus:ring-2 focus:ring-blue-500">
-            <div class="absolute inset-y-0 left-0 flex items-center pl-3">
-                <i class="fas fa-search text-gray-400"></i>
+    <main class="container mx-auto px-4 py-6">
+        <!-- Hero Section -->
+        <section class="text-center mb-12 animate-fadein">
+            <h1 class="text-4xl font-bold mb-2">Play Awesome Games Online</h1>
+            <p class="text-lg text-gray-400 max-w-2xl mx-auto">Discover and enjoy a collection of free online games. No downloads required - play instantly in your browser!</p>
+        </section>
+
+        <!-- Featured Games Section -->
+        <section id="featured" class="mb-10 animate-fadein">
+            <h2 class="text-2xl font-bold mb-4">Featured Games</h2>
+            <div class="relative overflow-hidden rounded-xl">
+                <div class="flex transition-transform duration-500 ease-in-out" id="featured-slider">
+                    <!-- Cannon Balls 3D (Featured) -->
+                    <div class="min-w-full relative">
+                        <div class="aspect-video bg-red-500 rounded-xl flex items-center justify-center relative overflow-hidden">
+                            <div class="absolute top-2 right-2">
+                                <span class="bg-red-600 text-white px-2 py-0.5 rounded-md text-xs">Action</span>
+                            </div>
+                            <div class="absolute inset-0 flex flex-col items-center justify-center">
+                                <h3 class="text-7xl font-bold text-white mb-4">Cannon Balls 3D</h3>
+                                <p class="text-4xl text-white">Action</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Garden Bloom (Featured) -->
+                    <div class="min-w-full relative">
+                        <div class="aspect-video bg-blue-500 rounded-xl flex items-center justify-center relative overflow-hidden">
+                            <div class="absolute top-2 right-2">
+                                <span class="bg-blue-600 text-white px-2 py-0.5 rounded-md text-xs">Puzzle</span>
+                            </div>
+                            <div class="absolute inset-0 flex flex-col items-center justify-center">
+                                <h3 class="text-7xl font-bold text-white mb-4">Garden Bloom</h3>
+                                <p class="text-4xl text-white">Puzzle</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Bubble Tower 3D (Featured) -->
+                    <div class="min-w-full relative">
+                        <div class="aspect-video bg-blue-500 rounded-xl flex items-center justify-center relative overflow-hidden">
+                            <div class="absolute top-2 right-2">
+                                <span class="bg-blue-600 text-white px-2 py-0.5 rounded-md text-xs">Puzzle</span>
+                            </div>
+                            <div class="absolute inset-0 flex flex-col items-center justify-center">
+                                <h3 class="text-7xl font-bold text-white mb-4">Bubble Tower 3D</h3>
+                                <p class="text-4xl text-white">Puzzle</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="absolute left-4 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-black/80 transition-colors" id="prev-featured">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button class="absolute right-4 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-black/80 transition-colors" id="next-featured">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
             </div>
-        </div>
-    </div>
+        </section>
 
-    <!-- 主横幅 -->
-    <div class="py-16 px-6 text-center">
-        <h2 class="text-4xl md:text-5xl font-bold mb-3">Play Awesome Games Online</h2>
-        <p class="text-gray-400 max-w-2xl mx-auto">Discover and enjoy a collection of free online games. No downloads required - play instantly in your browser!</p>
-    </div>
-
-    <!-- 精选游戏 -->
-    <section class="px-6 mb-12">
-        <h3 class="text-2xl font-bold mb-6">Featured Games</h3>
-        <div class="relative">
-            <div class="featured-games-container overflow-hidden">
-                <div id="featured-games" class="flex transition-transform duration-500">
-                    <!-- 游戏将通过JS添加 -->
+        <!-- Game Categories Navigation -->
+        <section class="mb-8">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-2xl font-bold">All Games</h2>
+                <div class="flex space-x-2">
+                    <a href="#" class="px-3 py-1 bg-secondary-800 text-white rounded-md text-sm hover:bg-secondary-700">All</a>
+                    <a href="#" class="px-3 py-1 text-gray-400 rounded-md text-sm hover:bg-secondary-800">Action</a>
+                    <a href="#" class="px-3 py-1 text-gray-400 rounded-md text-sm hover:bg-secondary-800">Puzzle</a>
+                    <a href="#" class="px-3 py-1 text-gray-400 rounded-md text-sm hover:bg-secondary-800">Sports</a>
                 </div>
             </div>
-            <!-- 翻页按钮 -->
-            <button id="prev-slide" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full">
-                <i class="fas fa-chevron-left"></i>
-            </button>
-            <button id="next-slide" class="absolute right-2 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full">
-                <i class="fas fa-chevron-right"></i>
-            </button>
-            <!-- 轮播指示器 -->
-            <div class="flex justify-center gap-1 mt-4" id="slide-indicators">
-                <button class="w-2 h-2 rounded-full bg-white"></button>
-                <button class="w-2 h-2 rounded-full bg-gray-600"></button>
-                <button class="w-2 h-2 rounded-full bg-gray-600"></button>
-                <button class="w-2 h-2 rounded-full bg-gray-600"></button>
-            </div>
-        </div>
-    </section>
 
-    <!-- 所有游戏 -->
-    <section class="px-6 mb-16 bg-gray-900 py-8">
-        <div class="flex justify-between items-center mb-6">
-            <h3 class="text-2xl font-bold">All Games</h3>
-            <div class="game-filter flex gap-2">
-                <button class="px-3 py-1 rounded-md bg-gray-800 text-white">All</button>
-                <button class="px-3 py-1 rounded-md text-gray-400">Action</button>
-                <button class="px-3 py-1 rounded-md text-gray-400">Puzzle</button>
-                <button class="px-3 py-1 rounded-md text-gray-400">Sports</button>
-            </div>
-        </div>
-        
-        <!-- 无搜索结果提示 -->
-        <div id="no-search-results" class="hidden py-10 text-center">
-            <i class="fas fa-search text-gray-600 text-4xl mb-4"></i>
-            <h3 class="text-xl font-bold mb-2">没有找到游戏</h3>
-            <p class="text-gray-400">尝试使用其他关键词搜索</p>
-        </div>
-        
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" id="all-games">
-            <!-- 游戏将通过JS添加 -->
-            <div id="games-loading" class="col-span-full text-center py-10">
-                <div class="loader"></div>
-                <p class="mt-4 text-gray-400">加载游戏中...</p>
-            </div>
-        </div>
-    </section>
+            <!-- Games Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 card-container">
+                <!-- Garden Bloom -->
+                <div class="game-card overflow-hidden shadow-md transition-all duration-300">
+                    <div class="aspect-video relative rounded-t-xl">
+                        <img src="https://play-lh.googleusercontent.com/v9lU9uO1C79s8fuYhgy9KQ2eFJG0aR3XSxLKF9ndJW8C_xTHkDCa_GJFv1Kj0bXa1A" alt="Garden Bloom" class="w-full h-full object-cover rounded-t-xl">
+                        <div class="absolute top-2 right-2">
+                            <span class="bg-white text-gray-800 text-xs px-2 py-1 rounded font-medium">Puzzle</span>
+                        </div>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-30">
+                            <h3 class="text-3xl font-bold text-white">Garden Bloom</h3>
+                            <p class="text-xl text-white mt-1">Puzzle</p>
+                        </div>
+                    </div>
+                    <div class="p-3 bg-gray-900 rounded-b-xl">
+                        <h3 class="font-bold text-white">Garden Bloom</h3>
+                        <p class="text-sm text-gray-300 mb-3">Match colorful flowers in this relaxing puzzle game. Create beautiful patterns and solve challenging levels.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center">
+                                <div class="flex">
+                                    <i class="text-yellow-400 fa-solid fa-star text-sm"></i>
+                                    <i class="text-yellow-400 fa-solid fa-star text-sm"></i>
+                                    <i class="text-yellow-400 fa-solid fa-star text-sm"></i>
+                                    <i class="text-yellow-400 fa-solid fa-star text-sm"></i>
+                                    <i class="text-yellow-400 fa-solid fa-star-half-stroke text-sm"></i>
+                                </div>
+                                <span class="ml-2 text-xs text-gray-400">1.2M Plays</span>
+                            </div>
+                            <a href="https://play.famobi.com/wrapper/garden-bloom/A1000-10" target="_blank" class="px-4 py-1.5 bg-white text-darkblue rounded-md font-medium hover:bg-gray-200 transition-colors play-btn text-center text-sm">Play Now</a>
+                        </div>
+                    </div>
+                </div>
 
-    <!-- 页脚 -->
-    <footer class="py-6 px-6 border-t border-gray-800 text-gray-500">
-        <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div>
-                <p>© 2023 GameVault. All rights reserved.</p>
+                <div class="game-card overflow-hidden shadow-md transition-all duration-300">
+                    <div class="aspect-video relative rounded-t-xl">
+                        <img src="https://img.gamemonetize.com/u5yf3ns5z1xdl39wuqe2nujzdjq48xkl/512x384.jpg" alt="Bubble Tower 3D" class="w-full h-full object-cover rounded-t-xl">
+                        <div class="absolute top-2 right-2">
+                            <span class="bg-white text-gray-800 text-xs px-2 py-1 rounded font-medium">Puzzle</span>
+                        </div>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-30">
+                            <h3 class="text-3xl font-bold text-white">Bubble Tower 3D</h3>
+                            <p class="text-xl text-white mt-1">Puzzle</p>
+                        </div>
+                    </div>
+                    <div class="p-3 bg-gray-900 rounded-b-xl">
+                        <h3 class="font-bold text-white">Bubble Tower 3D</h3>
+                        <p class="text-sm text-gray-300 mb-3">Aim and shoot bubbles to collapse the tower in this addictive 3D puzzle game.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center">
+                                <div class="flex">
+                                    <i class="text-yellow-400 fa-solid fa-star text-sm"></i>
+                                    <i class="text-yellow-400 fa-solid fa-star text-sm"></i>
+                                    <i class="text-yellow-400 fa-solid fa-star text-sm"></i>
+                                    <i class="text-yellow-400 fa-solid fa-star text-sm"></i>
+                                    <i class="text-yellow-400 fa-solid fa-star text-sm"></i>
+                                </div>
+                                <span class="ml-2 text-xs text-gray-400">2.1M Plays</span>
+                            </div>
+                            <a href="https://play.famobi.com/wrapper/bubble-tower-3d/A1000-10" target="_blank" class="px-4 py-1.5 bg-white text-darkblue rounded-md font-medium hover:bg-gray-200 transition-colors play-btn text-center text-sm">Play Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cannon Balls 3D -->
+                <div class="game-card overflow-hidden shadow-md transition-all duration-300">
+                    <div class="aspect-video relative rounded-t-xl">
+                        <img src="https://img.gamemonetize.com/x0ghf5kixqlvnt39ngs5ge1cubo1mmay/512x384.jpg" alt="Cannon Balls 3D" class="w-full h-full object-cover rounded-t-xl">
+                        <div class="absolute top-2 right-2">
+                            <span class="bg-white text-gray-800 text-xs px-2 py-1 rounded font-medium">Action</span>
+                        </div>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-30">
+                            <h3 class="text-3xl font-bold text-white">Cannon Balls 3D</h3>
+                            <p class="text-xl text-white mt-1">Action</p>
+                        </div>
+                    </div>
+                    <div class="p-3 bg-gray-900 rounded-b-xl">
+                        <h3 class="font-bold text-white">Cannon Balls 3D</h3>
+                        <p class="text-sm text-gray-300 mb-3">Fire cannon balls to destroy targets in this physics-based 3D action game.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center">
+                                <div class="flex">
+                                    <i class="text-yellow-400 fa-solid fa-star text-sm"></i>
+                                    <i class="text-yellow-400 fa-solid fa-star text-sm"></i>
+                                    <i class="text-yellow-400 fa-solid fa-star text-sm"></i>
+                                    <i class="text-yellow-400 fa-solid fa-star text-sm"></i>
+                                    <i class="text-yellow-400 fa-solid fa-star-half-stroke text-sm"></i>
+                                </div>
+                                <span class="ml-2 text-xs text-gray-400">1.8M Plays</span>
+                            </div>
+                            <a href="https://play.famobi.com/wrapper/cannon-balls-3d/A1000-10" target="_blank" class="px-4 py-1.5 bg-white text-darkblue rounded-md font-medium hover:bg-gray-200 transition-colors play-btn text-center text-sm">Play Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tower Crash 3D -->
+                <div class="game-card overflow-hidden shadow-md transition-all duration-300">
+                    <div class="aspect-video bg-purple-500 relative">
+                        <div class="absolute top-2 right-2">
+                            <span class="bg-white text-gray-800 text-xs px-2 py-1 rounded font-medium">Strategy</span>
+                        </div>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center">
+                            <h3 class="text-3xl font-bold text-white">Tower Crash 3D</h3>
+                            <p class="text-xl text-white mt-1">Strategy</p>
+                        </div>
+                    </div>
+                    <div class="p-3 bg-darkblue">
+                        <h3 class="font-bold text-white">Tower Crash 3D</h3>
+                        <p class="text-sm text-gray-300 mb-3">Test your physics skills by removing blocks without toppling the tower.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center">
+                                <div class="flex">
+                                    <i class="text-yellow-400 fa-solid fa-star text-sm"></i>
+                                    <i class="text-yellow-400 fa-solid fa-star text-sm"></i>
+                                    <i class="text-yellow-400 fa-solid fa-star text-sm"></i>
+                                    <i class="text-yellow-400 fa-solid fa-star text-sm"></i>
+                                    <i class="text-yellow-400 fa-solid fa-star text-sm"></i>
+                                </div>
+                                <span class="ml-2 text-xs text-gray-400">1.3M Plays</span>
+                            </div>
+                            <a href="https://play.famobi.com/wrapper/tower-crash-3d/A1000-10" target="_blank" class="px-4 py-1.5 bg-white text-darkblue rounded-md font-medium hover:bg-gray-200 transition-colors play-btn text-center text-sm">Play Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Element Blocks -->
+                <div class="game-card overflow-hidden shadow-md transition-all duration-300">
+                    <div class="aspect-video bg-blue-500 relative">
+                        <div class="absolute top-2 right-2">
+                            <span class="bg-white text-gray-800 text-xs px-2 py-1 rounded font-medium">Puzzle</span>
+                        </div>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center">
+                            <h3 class="text-3xl font-bold text-white">Element Blocks</h3>
+                            <p class="text-xl text-white mt-1">Puzzle</p>
+                        </div>
+                    </div>
+                    <div class="p-3 bg-darkblue">
+                        <h3 class="font-bold text-white">Element Blocks</h3>
+                        <p class="text-sm text-gray-300 mb-3">Master the elements in this unique puzzle challenge.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center">
+                                <div class="flex">
+                                    <i class="text-yellow-400 fa-solid fa-star text-sm"></i>
+                                    <i class="text-yellow-400 fa-solid fa-star text-sm"></i>
+                                    <i class="text-yellow-400 fa-solid fa-star text-sm"></i>
+                                    <i class="text-yellow-400 fa-solid fa-star text-sm"></i>
+                                    <i class="text-yellow-400 fa-solid fa-star-half-stroke text-sm"></i>
+                                </div>
+                                <span class="ml-2 text-xs text-gray-400">2.0M Plays</span>
+                            </div>
+                            <a href="https://play.famobi.com/wrapper/element-blocks/A1000-10" target="_blank" class="px-4 py-1.5 bg-white text-darkblue rounded-md font-medium hover:bg-gray-200 transition-colors play-btn text-center text-sm">Play Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ZooBoom -->
+                <div class="game-card overflow-hidden shadow-md transition-all duration-300">
+                    <div class="aspect-video bg-blue-500 relative">
+                        <div class="absolute top-2 right-2">
+                            <span class="bg-white text-gray-800 text-xs px-2 py-1 rounded font-medium">Puzzle</span>
+                        </div>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center">
+                            <h3 class="text-3xl font-bold text-white">ZooBoom</h3>
+                            <p class="text-xl text-white mt-1">Puzzle</p>
+                        </div>
+                    </div>
+                    <div class="p-3 bg-darkblue">
+                        <h3 class="font-bold text-white">ZooBoom</h3>
+                        <p class="text-sm text-gray-300 mb-3">Match and connect animals in this colorful puzzle adventure.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center">
+                                <div class="flex">
+                                    <i class="text-yellow-400 fa-solid fa-star text-sm"></i>
+                                    <i class="text-yellow-400 fa-solid fa-star text-sm"></i>
+                                    <i class="text-yellow-400 fa-solid fa-star text-sm"></i>
+                                    <i class="text-yellow-400 fa-solid fa-star text-sm"></i>
+                                    <i class="text-yellow-400 fa-regular fa-star text-sm"></i>
+                                </div>
+                                <span class="ml-2 text-xs text-gray-400">2.8M Plays</span>
+                            </div>
+                            <a href="https://play.famobi.com/wrapper/zoo-boom/A1000-10" target="_blank" class="px-4 py-1.5 bg-white text-darkblue rounded-md font-medium hover:bg-gray-200 transition-colors play-btn text-center text-sm">Play Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Moto X3M Pool Party -->
+                <div class="game-card overflow-hidden shadow-md transition-all duration-300">
+                    <div class="aspect-video bg-yellow-500 relative">
+                        <div class="absolute top-2 right-2">
+                            <span class="bg-white text-gray-800 text-xs px-2 py-1 rounded font-medium">Racing</span>
+                        </div>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center">
+                            <h3 class="text-3xl font-bold text-white">Moto X3M Pool Party</h3>
+                            <p class="text-xl text-white mt-1">Racing</p>
+                        </div>
+                    </div>
+                    <div class="p-3 bg-darkblue">
+                        <h3 class="font-bold text-white">Moto X3M Pool Party</h3>
+                        <p class="text-sm text-gray-300 mb-3">Race motorbikes through water-themed obstacle courses in this thrilling game.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center">
+                                <div class="flex">
+                                    <i class="text-yellow-400 fa-solid fa-star text-sm"></i>
+                                    <i class="text-yellow-400 fa-solid fa-star text-sm"></i>
+                                    <i class="text-yellow-400 fa-solid fa-star text-sm"></i>
+                                    <i class="text-yellow-400 fa-solid fa-star text-sm"></i>
+                                    <i class="text-yellow-400 fa-solid fa-star text-sm"></i>
+                                </div>
+                                <span class="ml-2 text-xs text-gray-400">3.6M Plays</span>
+                            </div>
+                            <a href="https://play.famobi.com/wrapper/moto-x3m-pool-party/A1000-10" target="_blank" class="px-4 py-1.5 bg-white text-darkblue rounded-md font-medium hover:bg-gray-200 transition-colors play-btn text-center text-sm">Play Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bubble Woods -->
+                <div class="game-card overflow-hidden shadow-md transition-all duration-300">
+                    <div class="aspect-video bg-blue-500 relative">
+                        <div class="absolute top-2 right-2">
+                            <span class="bg-white text-gray-800 text-xs px-2 py-1 rounded font-medium">Puzzle</span>
+                        </div>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center">
+                            <h3 class="text-3xl font-bold text-white">Bubble Woods</h3>
+                            <p class="text-xl text-white mt-1">Puzzle</p>
+                        </div>
+                    </div>
+                    <div class="p-3 bg-darkblue">
+                        <h3 class="font-bold text-white">Bubble Woods</h3>
+                        <p class="text-sm text-gray-300 mb-3">Pop colorful bubbles in this enchanting forest adventure.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center">
+                                <div class="flex">
+                                    <i class="text-yellow-400 fa-solid fa-star text-sm"></i>
+                                    <i class="text-yellow-400 fa-solid fa-star text-sm"></i>
+                                    <i class="text-yellow-400 fa-solid fa-star text-sm"></i>
+                                    <i class="text-yellow-400 fa-solid fa-star text-sm"></i>
+                                    <i class="text-yellow-400 fa-regular fa-star text-sm"></i>
+                                </div>
+                                <span class="ml-2 text-xs text-gray-400">1.7M Plays</span>
+                            </div>
+                            <a href="https://play.famobi.com/wrapper/bubble-woods/A1000-10" target="_blank" class="px-4 py-1.5 bg-white text-darkblue rounded-md font-medium hover:bg-gray-200 transition-colors play-btn text-center text-sm">Play Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3D Free Kick -->
+                <div class="game-card overflow-hidden shadow-md transition-all duration-300">
+                    <div class="aspect-video bg-green-500 relative">
+                        <div class="absolute top-2 right-2">
+                            <span class="bg-white text-gray-800 text-xs px-2 py-1 rounded font-medium">Sports</span>
+                        </div>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center">
+                            <h3 class="text-3xl font-bold text-white">3D Free Kick</h3>
+                            <p class="text-xl text-white mt-1">Sports</p>
+                        </div>
+                    </div>
+                    <div class="p-3 bg-darkblue">
+                        <h3 class="font-bold text-white">3D Free Kick</h3>
+                        <p class="text-sm text-gray-300 mb-3">Score amazing free kicks in this realistic 3D soccer game.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center">
+                                <div class="flex">
+                                    <i class="text-yellow-400 fa-solid fa-star text-sm"></i>
+                                    <i class="text-yellow-400 fa-solid fa-star text-sm"></i>
+                                    <i class="text-yellow-400 fa-solid fa-star text-sm"></i>
+                                    <i class="text-yellow-400 fa-solid fa-star text-sm"></i>
+                                    <i class="text-yellow-400 fa-regular fa-star text-sm"></i>
+                                </div>
+                                <span class="ml-2 text-xs text-gray-400">2.2M Plays</span>
+                            </div>
+                            <a href="https://play.famobi.com/wrapper/3d-free-kick/A1000-10" target="_blank" class="px-4 py-1.5 bg-white text-darkblue rounded-md font-medium hover:bg-gray-200 transition-colors play-btn text-center text-sm">Play Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8 Ball Billiards Classic -->
+                <div class="game-card overflow-hidden shadow-md transition-all duration-300">
+                    <div class="aspect-video bg-green-500 relative">
+                        <div class="absolute top-2 right-2">
+                            <span class="bg-white text-gray-800 text-xs px-2 py-1 rounded font-medium">Sports</span>
+                        </div>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center">
+                            <h3 class="text-3xl font-bold text-white">8 Ball Billiards</h3>
+                            <p class="text-xl text-white mt-1">Sports</p>
+                        </div>
+                    </div>
+                    <div class="p-3 bg-darkblue">
+                        <h3 class="font-bold text-white">8 Ball Billiards</h3>
+                        <p class="text-sm text-gray-300 mb-3">Play classic 8-ball billiards against challenging opponents.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center">
+                                <div class="flex">
+                                    <i class="text-yellow-400 fa-solid fa-star text-sm"></i>
+                                    <i class="text-yellow-400 fa-solid fa-star text-sm"></i>
+                                    <i class="text-yellow-400 fa-solid fa-star text-sm"></i>
+                                    <i class="text-yellow-400 fa-solid fa-star text-sm"></i>
+                                    <i class="text-yellow-400 fa-regular fa-star text-sm"></i>
+                                </div>
+                                <span class="ml-2 text-xs text-gray-400">2.5M Plays</span>
+                            </div>
+                            <a href="https://play.famobi.com/wrapper/8-ball-billiards-classic/A1000-10" target="_blank" class="px-4 py-1.5 bg-white text-darkblue rounded-md font-medium hover:bg-gray-200 transition-colors play-btn text-center text-sm">Play Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Archery World Tour -->
+                <div class="game-card overflow-hidden shadow-md transition-all duration-300">
+                    <div class="aspect-video bg-green-500 relative">
+                        <div class="absolute top-2 right-2">
+                            <span class="bg-white text-gray-800 text-xs px-2 py-1 rounded font-medium">Sports</span>
+                        </div>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center">
+                            <h3 class="text-3xl font-bold text-white">Archery World Tour</h3>
+                            <p class="text-xl text-white mt-1">Sports</p>
+                        </div>
+                    </div>
+                    <div class="p-3 bg-darkblue">
+                        <h3 class="font-bold text-white">Archery World Tour</h3>
+                        <p class="text-sm text-gray-300 mb-3">Test your archery skills in locations around the globe.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center">
+                                <div class="flex">
+                                    <i class="text-yellow-400 fa-solid fa-star text-sm"></i>
+                                    <i class="text-yellow-400 fa-solid fa-star text-sm"></i>
+                                    <i class="text-yellow-400 fa-solid fa-star text-sm"></i>
+                                    <i class="text-yellow-400 fa-solid fa-star text-sm"></i>
+                                    <i class="text-yellow-400 fa-regular fa-star text-sm"></i>
+                                </div>
+                                <span class="ml-2 text-xs text-gray-400">1.9M Plays</span>
+                            </div>
+                            <a href="https://play.famobi.com/wrapper/archery-world-tour/A1000-10" target="_blank" class="px-4 py-1.5 bg-white text-darkblue rounded-md font-medium hover:bg-gray-200 transition-colors play-btn text-center text-sm">Play Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Totemia: Cursed Marbles -->
+                <div class="game-card overflow-hidden shadow-md transition-all duration-300">
+                    <div class="aspect-video bg-blue-500 relative">
+                        <div class="absolute top-2 right-2">
+                            <span class="bg-white text-gray-800 text-xs px-2 py-1 rounded font-medium">Puzzle</span>
+                        </div>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center">
+                            <h3 class="text-3xl font-bold text-white">Totemia Cursed Marbles</h3>
+                            <p class="text-xl text-white mt-1">Puzzle</p>
+                        </div>
+                    </div>
+                    <div class="p-3 bg-darkblue">
+                        <h3 class="font-bold text-white">Totemia Cursed Marbles</h3>
+                        <p class="text-sm text-gray-300 mb-3">Match and shoot marbles to break the ancient curse.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center">
+                                <div class="flex">
+                                    <i class="text-yellow-400 fa-solid fa-star text-sm"></i>
+                                    <i class="text-yellow-400 fa-solid fa-star text-sm"></i>
+                                    <i class="text-yellow-400 fa-solid fa-star text-sm"></i>
+                                    <i class="text-yellow-400 fa-solid fa-star text-sm"></i>
+                                    <i class="text-yellow-400 fa-solid fa-star text-sm"></i>
+                                </div>
+                                <span class="ml-2 text-xs text-gray-400">1.0M Plays</span>
+                            </div>
+                            <a href="https://play.famobi.com/wrapper/totemia-cursed-marbles/A1000-10" target="_blank" class="px-4 py-1.5 bg-white text-darkblue rounded-md font-medium hover:bg-gray-200 transition-colors play-btn text-center text-sm">Play Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Table Tennis World Tour -->
+                <div class="game-card overflow-hidden shadow-md transition-all duration-300">
+                    <div class="aspect-video bg-green-500 relative">
+                        <div class="absolute top-2 right-2">
+                            <span class="bg-white text-gray-800 text-xs px-2 py-1 rounded font-medium">Sports</span>
+                        </div>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center">
+                            <h3 class="text-3xl font-bold text-white">Table Tennis World Tour</h3>
+                            <p class="text-xl text-white mt-1">Sports</p>
+                        </div>
+                    </div>
+                    <div class="p-3 bg-darkblue">
+                        <h3 class="font-bold text-white">Table Tennis World Tour</h3>
+                        <p class="text-sm text-gray-300 mb-3">Compete in table tennis tournaments around the world with realistic physics.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center">
+                                <div class="flex">
+                                    <i class="text-yellow-400 fa-solid fa-star text-sm"></i>
+                                    <i class="text-yellow-400 fa-solid fa-star text-sm"></i>
+                                    <i class="text-yellow-400 fa-solid fa-star text-sm"></i>
+                                    <i class="text-yellow-400 fa-solid fa-star text-sm"></i>
+                                    <i class="text-yellow-400 fa-regular fa-star text-sm"></i>
+                                </div>
+                                <span class="ml-2 text-xs text-gray-400">1.2M Plays</span>
+                            </div>
+                            <a href="https://play.famobi.com/wrapper/table-tennis-world-tour/A1000-10" target="_blank" class="px-4 py-1.5 bg-white text-darkblue rounded-md font-medium hover:bg-gray-200 transition-colors play-btn text-center text-sm">Play Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Onet Connect Classic -->
+                <div class="game-card overflow-hidden shadow-md transition-all duration-300">
+                    <div class="aspect-video bg-blue-500 relative">
+                        <div class="absolute top-2 right-2">
+                            <span class="bg-white text-gray-800 text-xs px-2 py-1 rounded font-medium">Puzzle</span>
+                        </div>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center">
+                            <h3 class="text-3xl font-bold text-white">Onet Connect Classic</h3>
+                            <p class="text-xl text-white mt-1">Puzzle</p>
+                        </div>
+                    </div>
+                    <div class="p-3 bg-darkblue">
+                        <h3 class="font-bold text-white">Onet Connect Classic</h3>
+                        <p class="text-sm text-gray-300 mb-3">Match identical tiles to clear the board in this relaxing puzzle game.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center">
+                                <div class="flex">
+                                    <i class="text-yellow-400 fa-solid fa-star text-sm"></i>
+                                    <i class="text-yellow-400 fa-solid fa-star text-sm"></i>
+                                    <i class="text-yellow-400 fa-solid fa-star text-sm"></i>
+                                    <i class="text-yellow-400 fa-solid fa-star text-sm"></i>
+                                    <i class="text-yellow-400 fa-regular fa-star text-sm"></i>
+                                </div>
+                                <span class="ml-2 text-xs text-gray-400">2.0M Plays</span>
+                            </div>
+                            <a href="https://play.famobi.com/wrapper/onet-connect-classic/A1000-10" target="_blank" class="px-4 py-1.5 bg-white text-darkblue rounded-md font-medium hover:bg-gray-200 transition-colors play-btn text-center text-sm">Play Now</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="flex gap-6">
-                <a href="#" class="hover:text-white transition">Privacy Policy</a>
-                <a href="#" class="hover:text-white transition">Terms of Service</a>
-                <a href="#" class="hover:text-white transition">Contact Us</a>
+        </section>
+    </main>
+
+    <footer class="bg-darkblue py-4 mt-10 border-t border-secondary-800">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p class="text-sm text-gray-400">© 2023 GameVaultHub. All rights reserved.</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-sm text-gray-400 hover:text-primary-400 transition-colors">Privacy Policy</a>
+                    <a href="#" class="text-sm text-gray-400 hover:text-primary-400 transition-colors">Terms of Service</a>
+                    <a href="mailto:me2vin222@gmail.com" class="text-sm text-gray-400 hover:text-primary-400 transition-colors">Contact Us</a>
+                </div>
             </div>
         </div>
     </footer>
 
-    <!-- 游戏模态框 -->
-    <div id="game-modal" class="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center hidden">
-        <div class="w-full max-w-4xl bg-gray-900 rounded-lg overflow-hidden">
-            <div class="p-4 flex justify-between items-center border-b border-gray-800">
-                <h3 id="modal-game-title" class="text-xl font-bold">Game Title</h3>
-                <button id="close-modal" class="text-gray-400 hover:text-white">
-                    <i class="fas fa-times text-xl"></i>
-                </button>
-            </div>
-            <div class="relative aspect-video">
-                <iframe id="game-frame" class="w-full h-full" frameborder="0" allowfullscreen></iframe>
-            </div>
-        </div>
-    </div>
-
-    <!-- 调试信息 -->
-    <div id="debug-info" style="display: none;">
-        <p>浏览器: <span id="browser-info"></span></p>
-        <p>屏幕尺寸: <span id="screen-info"></span></p>
-        <p>JavaScript状态: <span id="js-status"></span></p>
-    </div>
-
     <script>
-        // 简单的调试脚本
-        document.getElementById('browser-info').textContent = navigator.userAgent;
-        document.getElementById('screen-info').textContent = `${window.innerWidth}x${window.innerHeight}`;
-        document.getElementById('js-status').textContent = '已加载';
-        
-        // 检查游戏容器是否存在
-        window.addEventListener('DOMContentLoaded', function() {
-            if (document.getElementById('all-games')) {
-                console.log('游戏容器已找到');
-            } else {
-                console.error('找不到游戏容器!');
-            }
+        // Featured slider functionality
+        const featuredSlider = document.getElementById('featured-slider');
+        const prevButton = document.getElementById('prev-featured');
+        const nextButton = document.getElementById('next-featured');
+        let currentSlide = 0;
+        const slideCount = featuredSlider.children.length;
+
+        function updateSlider() {
+            featuredSlider.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        prevButton.addEventListener('click', () => {
+            currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+            updateSlider();
+        });
+
+        nextButton.addEventListener('click', () => {
+            currentSlide = (currentSlide + 1) % slideCount;
+            updateSlider();
+        });
+
+        // Auto-rotate featured slider
+        let sliderInterval = setInterval(() => {
+            currentSlide = (currentSlide + 1) % slideCount;
+            updateSlider();
+        }, 5000);
+
+        // Reset interval on manual navigation
+        [prevButton, nextButton].forEach(button => {
+            button.addEventListener('click', () => {
+                clearInterval(sliderInterval);
+                sliderInterval = setInterval(() => {
+                    currentSlide = (currentSlide + 1) % slideCount;
+                    updateSlider();
+                }, 5000);
+            });
         });
     </script>
-
-    <!-- JS文件 -->
-    <script src="js/image-fallbacks.js"></script>
-    <script src="js/image-proxy.js"></script>
-    <script src="js/main.js"></script>
 </body>
-</html> 
+</html>
